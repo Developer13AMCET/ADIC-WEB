@@ -353,8 +353,8 @@
 }
 
 /* =========================================================
-   MOBILE ELEMENT POSITIONING
-   Design is unchanged — only element spacing/position
+   MOBILE
+   ONLY ELEMENT POSITIONING IS CHANGED HERE
 ========================================================= */
 
 @media (max-width: 700px) {
@@ -363,10 +363,11 @@
     min-height: 430px;
   }
 
+  /* Central visual */
   .logo-stage {
     width: 290px;
     height: 290px;
-    top: 47%;
+    top: 44%;
   }
 
   .ring-one {
@@ -389,36 +390,86 @@
     height: 145px;
   }
 
+  /* Top label */
+  .label-top {
+    top: 3px;
+  }
+
+  /* Side labels */
+  .label-left {
+    left: -5px;
+  }
+
+  .label-right {
+    right: -5px;
+  }
+
   /*
-    Move the stage information slightly upward
-    so it does not collide with IMPACT.
+    IMPORTANT:
+    Move IMPACT away from the stage text.
+    It stays part of the same orbit, but sits
+    lower and slightly away from the description.
+  */
+  .label-bottom {
+    bottom: -18px;
+  }
+
+  /*
+    Current stage is moved upward and given
+    its own safe area.
   */
   .journey-status {
     left: 22px;
     right: 22px;
     bottom: 72px;
-    gap: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  /*
+    Keep the text compact on narrow screens.
+  */
+  .journey-status > div:first-child {
+    min-width: 0;
+    flex: 1;
   }
 
   .journey-status p {
-    max-width: 220px;
+    max-width: 180px;
+    margin-top: 5px;
+    line-height: 1.65;
   }
 
+  /*
+    Keep the progress line from squeezing
+    the description.
+  */
   .journey-line {
-    width: 90px;
+    width: 82px;
     flex-shrink: 0;
+    margin-bottom: 7px;
   }
 
+  /*
+    Bottom navigation remains exactly
+    where it belongs.
+  */
   .journey-stages {
     height: 47px;
   }
 
-  /*
-    Keep IMPACT visually separated from
-    the current-stage description.
-  */
-  .label-bottom {
-    bottom: -10px;
+  .journey-stages button {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .journey-stages button span {
+    font-size: 8px;
+  }
+
+  .journey-stages button strong {
+    font-size: 9px;
   }
 }
 
@@ -553,7 +604,7 @@
 }
 
 /* =========================================================
-   STRONGER, CLEARLY VISIBLE HERO MOTION
+   STRONGER MOTION
 ========================================================= */
 
 .logo-ring.ring-one {
