@@ -1,0 +1,9 @@
+.details-page{background:#fff}.details-hero{min-height:560px;padding:80px 7vw;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;background:linear-gradient(135deg,#f8fafc,#eef6ff)}.details-hero h1{margin:0;font-size:clamp(48px,7vw,86px);line-height:.95;letter-spacing:-.065em}.details-hero p:not(.section-label){max-width:560px;margin-top:22px;color:#64748b;font-size:14px;line-height:1.75}.details-image{aspect-ratio:16/10;overflow:hidden;border:1px solid #dce5ef;background:#eef3f8}.details-image img{width:100%;height:100%;object-fit:cover}.details-actions{display:flex;align-items:center;gap:12px;margin-top:28px}.details-actions>a:last-child{font-size:10px;font-weight:800;color:#0066ff}.details-copy{display:grid;grid-template-columns:1fr 1fr;gap:80px}.details-copy h2{font-size:clamp(30px,4vw,48px);line-height:1.02;letter-spacing:-.05em}.details-copy>p{color:#64748b;font-size:13px;line-height:1.9}.not-found{min-height:60vh;padding:100px 7vw}.not-found h1{font-size:60px}.not-found a{display:inline-block;margin-top:20px;color:#0066ff;font-weight:700}@media(max-width:800px){.details-hero,.details-copy{grid-template-columns:1fr;gap:35px}.details-hero{padding:60px 20px}.details-copy{padding:60px 20px}}
+
+/* Exact 5px spacing from navbar to project details and between page sections */
+.details-hero{margin-top:5px;padding-top:0;padding-bottom:0}
+.details-copy{margin-top:5px}
+@media(max-width:800px){
+  .details-hero{margin-top:5px;padding-top:0;padding-bottom:0}
+  .details-copy{margin-top:5px;padding-top:0;padding-bottom:0}
+}

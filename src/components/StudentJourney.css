@@ -1,0 +1,272 @@
+.innovation-visual {
+  position: relative;
+  width: 100%;
+  min-height: 510px;
+  overflow: hidden;
+  border: 1px solid #dbe5f0;
+  background: linear-gradient(145deg, #f8fafc 0%, #eef6ff 55%, #ffffff 100%);
+  color: #0b132b;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 25px 70px rgba(0, 102, 255, 0.08);
+}
+
+.visual-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.42;
+  background-image:
+    linear-gradient(rgba(0, 102, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 102, 255, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.visual-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 260px;
+  height: 260px;
+  left: 8%;
+  top: 20%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.12), transparent 68%);
+}
+
+.glow-two {
+  width: 300px;
+  height: 300px;
+  right: -5%;
+  bottom: -8%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.15), transparent 68%);
+}
+
+.visual-topline {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 48px;
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(11, 19, 43, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00d2ff;
+  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.12);
+}
+
+.visual-code {
+  margin-left: auto;
+  color: #64748b;
+}
+
+.logo-stage {
+  position: absolute;
+  left: 50%;
+  top: 53%;
+  width: 360px;
+  height: 360px;
+  transform: translate(-50%, -50%);
+}
+
+.logo-ring {
+  position: absolute;
+  inset: 50%;
+  border: 1px solid rgba(0, 102, 255, 0.16);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-one { width: 190px; height: 190px; }
+.ring-two { width: 270px; height: 270px; border-color: rgba(0, 210, 255, 0.2); }
+.ring-three { width: 350px; height: 350px; border-style: dashed; border-color: rgba(0, 102, 255, 0.13); }
+
+.logo-aura {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.14), rgba(0, 210, 255, 0.07) 45%, transparent 72%);
+}
+
+.hero-logo-button {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  width: 176px;
+  height: 176px;
+  padding: 15px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 55px rgba(0, 102, 255, 0.14);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-logo-button:hover {
+  transform: translate(-50%, -50%) scale(1.045);
+  box-shadow: 0 25px 65px rgba(0, 102, 255, 0.2);
+}
+
+.hero-logo-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.visual-orbit-label {
+  position: absolute;
+  z-index: 4;
+  padding: 6px 9px;
+  border: 1px solid rgba(0, 102, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #0066ff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.label-top { top: 7px; left: 50%; transform: translateX(-50%); }
+.label-right { right: -2px; top: 50%; transform: translateY(-50%); }
+.label-bottom { bottom: 7px; left: 50%; transform: translateX(-50%); }
+.label-left { left: -8px; top: 50%; transform: translateY(-50%); }
+
+.journey-status {
+  position: absolute;
+  z-index: 5;
+  left: 22px;
+  right: 22px;
+  bottom: 76px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.journey-kicker {
+  display: block;
+  margin-bottom: 5px;
+  color: #64748b;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.journey-status strong {
+  display: block;
+  color: #0b132b;
+  font-size: 19px;
+  letter-spacing: -0.03em;
+}
+
+.journey-status p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.journey-line {
+  width: 155px;
+  height: 2px;
+  margin-bottom: 8px;
+  background: #d9e6f5;
+  overflow: hidden;
+}
+
+.journey-progress {
+  display: block;
+  width: 62%;
+  height: 100%;
+  background: linear-gradient(90deg, #0066ff, #00d2ff);
+}
+
+.journey-stages {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(11, 19, 43, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.journey-stages button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 17px;
+  border: 0;
+  border-right: 1px solid rgba(11, 19, 43, 0.07);
+  background: transparent;
+  color: #64748b;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.journey-stages button:last-child { border-right: 0; }
+.journey-stages button span { font-size: 8px; }
+.journey-stages button strong { font-size: 9px; letter-spacing: 0.1em; }
+.journey-stages button.active { color: #0066ff; background: rgba(0, 102, 255, 0.045); }
+
+@media (max-width: 700px) {
+  .innovation-visual { min-height: 430px; }
+  .logo-stage { width: 290px; height: 290px; top: 49%; }
+  .ring-one { width: 150px; height: 150px; }
+  .ring-two { width: 215px; height: 215px; }
+  .ring-three { width: 280px; height: 280px; }
+  .hero-logo-button { width: 145px; height: 145px; }
+  .journey-status { bottom: 65px; }
+  .journey-line { width: 90px; }
+  .journey-stages { height: 47px; }
+}
+/* Noticeable continuous motion for the hero visual */
+.logo-ring.ring-one{animation:heroSpinOne 11s linear infinite}.logo-ring.ring-two{animation:heroSpinTwo 15s linear infinite}.logo-ring.ring-three{animation:heroSpinThree 20s linear infinite}.logo-aura{animation:heroPulse 3s ease-in-out infinite}.hero-logo-button{animation:heroFloat 4s ease-in-out infinite}.label-top{animation:heroLabelTop 5s ease-in-out infinite}.label-right{animation:heroLabelRight 5.7s ease-in-out infinite}.label-bottom{animation:heroLabelBottom 6.2s ease-in-out infinite}.label-left{animation:heroLabelLeft 5.4s ease-in-out infinite}
+@keyframes heroSpinOne{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes heroSpinTwo{to{transform:translate(-50%,-50%) rotate(-360deg)}}@keyframes heroSpinThree{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes heroPulse{0%,100%{transform:translate(-50%,-50%) scale(.9);opacity:.65}50%{transform:translate(-50%,-50%) scale(1.15);opacity:1}}@keyframes heroFloat{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-10px)}}@keyframes heroLabelTop{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-12px)}}@keyframes heroLabelRight{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(12px)}}@keyframes heroLabelBottom{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(12px)}}@keyframes heroLabelLeft{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-12px)}}
+@media(prefers-reduced-motion:reduce){.logo-ring,.logo-aura,.hero-logo-button,.visual-orbit-label{animation:none!important}}
+
+
+/* Stronger, clearly visible hero motion */
+.logo-ring.ring-one{animation-duration:6s}
+.logo-ring.ring-two{animation-duration:9s}
+.logo-ring.ring-three{animation-duration:13s}
+.logo-aura{animation:heroPulseStrong 2.2s ease-in-out infinite}
+.hero-logo-button{animation:heroFloatStrong 2.8s ease-in-out infinite}
+.visual-glow.glow-one{animation:glowDriftOne 4.5s ease-in-out infinite}
+.visual-glow.glow-two{animation:glowDriftTwo 5.2s ease-in-out infinite}
+.logo-stage::before,.logo-stage::after{content:"";position:absolute;left:50%;top:50%;border-radius:50%;pointer-events:none;z-index:2}
+.logo-stage::before{width:12px;height:12px;background:#0066ff;box-shadow:0 0 0 5px rgba(0,102,255,.12),0 0 22px rgba(0,102,255,.45);animation:orbitDot 5s linear infinite}
+.logo-stage::after{width:8px;height:8px;background:#00d2ff;box-shadow:0 0 0 4px rgba(0,210,255,.12),0 0 18px rgba(0,210,255,.5);animation:orbitDotReverse 7s linear infinite}
+@keyframes heroPulseStrong{0%,100%{transform:translate(-50%,-50%) scale(.78);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.3);opacity:1}}
+@keyframes heroFloatStrong{0%,100%{transform:translate(-50%,-50%) translateY(0) scale(1)}50%{transform:translate(-50%,-50%) translateY(-13px) scale(1.025)}}
+@keyframes glowDriftOne{0%,100%{transform:translate(0,0) scale(.85);opacity:.55}50%{transform:translate(35px,-20px) scale(1.18);opacity:1}}
+@keyframes glowDriftTwo{0%,100%{transform:translate(0,0) scale(.9);opacity:.55}50%{transform:translate(-30px,-25px) scale(1.2);opacity:1}}
+@keyframes orbitDot{from{transform:translate(-50%,-50%) rotate(0deg) translateX(135px)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(135px)}}
+@keyframes orbitDotReverse{from{transform:translate(-50%,-50%) rotate(360deg) translateX(105px)}to{transform:translate(-50%,-50%) rotate(0deg) translateX(105px)}}
+@media(max-width:700px){.logo-stage::before{animation-name:orbitDotMobile}.logo-stage::after{animation-name:orbitDotReverseMobile}}
+@keyframes orbitDotMobile{from{transform:translate(-50%,-50%) rotate(0deg) translateX(108px)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(108px)}}
+@keyframes orbitDotReverseMobile{from{transform:translate(-50%,-50%) rotate(360deg) translateX(84px)}to{transform:translate(-50%,-50%) rotate(0deg) translateX(84px)}}

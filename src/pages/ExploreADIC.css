@@ -1,0 +1,377 @@
+.explore-page {
+    background: #fff;
+    color: #0b132b;
+    font-family: "Inter", sans-serif;
+}
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section {
+    padding: 5px 6vw;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: clamp(38px, 4vw, 54px);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+}
+
+.section-label {
+    margin: 0 0 9px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #0066ff;
+}
+
+
+/* =========================
+   EXPLORE HERO
+========================= */
+
+.explore-hero {
+    min-height: 310px;
+    padding: 5px 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f8fafc, #eef6ff);
+}
+
+.explore-hero > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explore-hero h1 {
+    margin: 0;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+    white-space: nowrap;
+}
+
+.explore-hero h1 span {
+    color: #0066ff;
+}
+
+.explore-hero p:not(.section-label) {
+    max-width: 620px;
+    margin: 24px auto 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.explore-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #dce5ef;
+    border-bottom: 1px solid #dce5ef;
+    background: #fff;
+}
+
+.explore-stats > div {
+    padding: 22px 6vw;
+    border-right: 1px solid #dce5ef;
+    text-align: center;
+}
+
+.explore-stats > div:last-child {
+    border-right: 0;
+}
+
+.explore-stats strong {
+    display: block;
+    color: #0066ff;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.explore-stats span {
+    display: block;
+    margin-top: 9px;
+    color: #64748b;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+
+/* =========================
+   TEAM
+========================= */
+
+.team-section {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.member-card {
+    min-height: 245px;
+    padding: 18px;
+    border: 1px solid #dce5ef;
+    background: #fff;
+    transition: 0.25s ease;
+    position: relative;
+    text-align: center;
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+    border-color: #9dc4ef;
+    box-shadow: 0 18px 45px rgba(0, 102, 255, 0.09);
+}
+
+.member-top {
+    display: flex;
+    justify-content: space-between;
+    color: #94a3b8;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.member-avatar {
+    width: 78px;
+    height: 78px;
+    margin: 26px auto 20px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #0b132b, #0066ff);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    box-shadow: 0 12px 25px rgba(0, 102, 255, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.member-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.member-card h3 {
+    font-size: 20px;
+    letter-spacing: -0.04em;
+}
+
+.member-card p {
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 10px;
+}
+
+.member-card a,
+.portfolio-pending {
+    display: inline-flex;
+    margin-top: 22px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.member-card a {
+    color: #0066ff;
+}
+
+.member-card a span {
+    margin-left: 8px;
+}
+
+.portfolio-pending {
+    color: #94a3b8;
+}
+
+
+/* =========================
+   VALUES
+========================= */
+
+.explore-values {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #f8fafc;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.value-card {
+    min-height: 210px;
+    padding: 25px;
+    border-top: 2px solid #0066ff;
+    background: #fff;
+}
+
+.value-card span {
+    font-size: 9px;
+    color: #0066ff;
+    font-weight: 800;
+}
+
+.value-card h3 {
+    margin: 28px 0 10px;
+    font-size: 28px;
+    letter-spacing: -0.04em;
+}
+
+.value-card p {
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 11px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.explore-cta {
+    padding: 5px 6vw;
+    background: #0b132b;
+    color: #fff;
+    text-align: center;
+}
+
+.explore-cta .section-label {
+    color: #00d2ff;
+}
+
+.explore-cta h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+}
+
+.explore-cta h2 span {
+    color: #00d2ff;
+}
+
+.explore-cta a {
+    display: inline-flex;
+    margin-top: 25px;
+    height: 44px;
+    padding: 0 18px;
+    align-items: center;
+    gap: 10px;
+    background: #0066ff;
+    color: #fff;
+    font: 800 10px "Inter", sans-serif;
+}
+
+.explore-cta a span {
+    font-size: 15px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .explore-hero {
+        min-height: 285px;
+        padding: 5px 20px;
+    }
+
+    .explore-hero h1 {
+        white-space: normal;
+        font-size: clamp(42px, 12vw, 60px);
+    }
+
+    .explore-hero p:not(.section-label) {
+        margin-top: 18px;
+    }
+
+    .explore-stats > div {
+        padding: 22px 8px;
+    }
+
+    .explore-stats strong {
+        font-size: 30px;
+    }
+
+    .explore-stats span {
+        font-size: 7px;
+    }
+
+    .member-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-card {
+        min-height: 225px;
+    }
+
+    .section {
+        padding: 5px 20px;
+    }
+
+    .team-section {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .explore-values {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .explore-cta {
+        padding: 5px 20px;
+    }
+}

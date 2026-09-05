@@ -1,0 +1,22 @@
+ADIC COMPLETE WEBSITE
+
+1. Open this folder in VS Code.
+2. Open Terminal.
+3. Run: npm install
+4. Run: npm run dev
+5. Open the local URL shown by Vite.
+
+Public assets are already included in this copy. If you replace/add assets later, keep the filenames used by the code.
+
+Routes:
+/                 Home
+/projects         Projects + Build With ADIC form
+/projects/:slug   Individual project details
+/explore-adic     Explore ADIC / 13 student developers
+
+There is intentionally NO separate Technology page. Technology Domains are part of the Home page.
+
+FormSubmit recipient currently used by both forms:
+monikagopi3@gmail.com
+
+Live project URLs and student portfolio URLs are intentionally left empty until the real URLs are provided.
