@@ -354,7 +354,7 @@
 
 /* =========================================================
    MOBILE
-   ONLY ELEMENT POSITIONING IS CHANGED HERE
+   ONLY POSITIONING / SPACING
 ========================================================= */
 
 @media (max-width: 700px) {
@@ -363,7 +363,7 @@
     min-height: 430px;
   }
 
-  /* Central visual */
+  /* Central logo/rings */
   .logo-stage {
     width: 290px;
     height: 290px;
@@ -390,34 +390,27 @@
     height: 145px;
   }
 
-  /* Top label */
+  /* THINK */
   .label-top {
     top: 3px;
   }
 
-  /* Side labels */
+  /* CREATE */
   .label-left {
     left: -5px;
   }
 
+  /* BUILD */
   .label-right {
     right: -5px;
   }
 
-  /*
-    IMPORTANT:
-    Move IMPACT away from the stage text.
-    It stays part of the same orbit, but sits
-    lower and slightly away from the description.
-  */
+  /* IMPACT - moved below the description area */
   .label-bottom {
-    bottom: -18px;
+    bottom: -38px;
   }
 
-  /*
-    Current stage is moved upward and given
-    its own safe area.
-  */
+  /* Current stage */
   .journey-status {
     left: 22px;
     right: 22px;
@@ -427,9 +420,6 @@
     gap: 16px;
   }
 
-  /*
-    Keep the text compact on narrow screens.
-  */
   .journey-status > div:first-child {
     min-width: 0;
     flex: 1;
@@ -441,20 +431,14 @@
     line-height: 1.65;
   }
 
-  /*
-    Keep the progress line from squeezing
-    the description.
-  */
+  /* Progress line */
   .journey-line {
     width: 82px;
     flex-shrink: 0;
     margin-bottom: 7px;
   }
 
-  /*
-    Bottom navigation remains exactly
-    where it belongs.
-  */
+  /* Bottom navigation */
   .journey-stages {
     height: 47px;
   }
@@ -474,7 +458,7 @@
 }
 
 /* =========================================================
-   NOTICEABLE CONTINUOUS MOTION
+   CONTINUOUS MOTION
 ========================================================= */
 
 .logo-ring.ring-one {
@@ -777,14 +761,14 @@
     transform:
       translate(-50%, -50%)
       rotate(0deg)
-      translateX(108px);
+      translateX(115px);
   }
 
   to {
     transform:
       translate(-50%, -50%)
       rotate(360deg)
-      translateX(108px);
+      translateX(115px);
   }
 }
 
@@ -793,14 +777,14 @@
     transform:
       translate(-50%, -50%)
       rotate(360deg)
-      translateX(84px);
+      translateX(92px);
   }
 
   to {
     transform:
       translate(-50%, -50%)
       rotate(0deg)
-      translateX(84px);
+      translateX(92px);
   }
 }
 
