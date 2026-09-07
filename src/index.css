@@ -1,120 +1,496 @@
+/* =========================================================
+   ADIC — GLOBAL FOUNDATION
+   Responsive / Device-Independent Base Styles
+   ========================================================= */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* =========================
+     ADIC COLOR SYSTEM
+     ========================= */
+
+  --navy: #0b132b;
+  --blue: #0066ff;
+  --cyan: #00d2ff;
+
+  --white: #ffffff;
+  --off-white: #f8fafc;
+  --soft-blue: #eef6ff;
+
+  --slate: #64748b;
+  --line: #dce5ef;
+
+  /* =========================
+     GLOBAL TEXT COLORS
+     ========================= */
+
+  --text: #64748b;
+  --text-h: #0b132b;
+
+  /* =========================
+     GLOBAL UI COLORS
+     ========================= */
+
+  --bg: #ffffff;
+  --border: #dce5ef;
+
+  /* =========================
+     OPTIONAL CODE COLORS
+     ========================= */
+
+  --code-bg: #f1f5f9;
+
+  /* =========================
+     SHADOW
+     ========================= */
+
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(11, 19, 43, 0.08) 0 10px 30px -8px,
+    rgba(11, 19, 43, 0.04) 0 4px 12px -4px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* =========================
+     FONT SYSTEM
+     ========================= */
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  --sans:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --heading:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --mono:
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  /* =========================
+     IMPORTANT
+     ========================= */
+
+  /*
+    ADIC is intentionally LIGHT.
+    Do NOT allow the user's OS/browser
+    dark mode to change the website.
+  */
+  color-scheme: light;
+
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0;
+
   color: var(--text);
   background: var(--bg);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
-      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+/* =========================================================
+   UNIVERSAL BOX SIZING
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+
+/* =========================================================
+   HTML
+   ========================================================= */
+
+html {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+  color: #0b132b;
+
+  /*
+    Prevent browser/OS theme from changing ADIC.
+  */
+  color-scheme: light;
+
+  /*
+    Prevent horizontal scrolling caused by
+    oversized components.
+  */
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
 
 body {
-  margin: 0;
   width: 100%;
-  min-width: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+  color: #0b132b;
+
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  overflow-x: hidden;
+
+  /*
+    Prevent mobile browsers from automatically
+    changing text dimensions.
+  */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
 
 #root {
   width: 100%;
   max-width: none;
+
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100svh;
+
   margin: 0;
   padding: 0;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+
+  /*
+    IMPORTANT:
+    No border here.
+    A border can create tiny width differences
+    and unnecessary horizontal calculations.
+  */
+  border: 0;
+
+  /*
+    Do not globally center everything.
+    Individual components should control their alignment.
+  */
+  text-align: left;
+
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+
+  background: #ffffff;
+
+  overflow-x: hidden;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+
+/* =========================================================
+   MEDIA ELEMENTS
+   ========================================================= */
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
 }
+
+
+/*
+  Prevent images from creating unexpected
+  inline spacing.
+*/
+img {
+  height: auto;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   BUTTONS / FORM ELEMENTS
+   ========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/*
+  Don't allow browser default button styles
+  to unexpectedly affect spacing.
+*/
+button,
+input,
+textarea,
+select {
+  margin: 0;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  color: var(--text-h);
+
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+
+  font-weight: 500;
+}
+
+
+/* =========================
+   H1
+   ========================= */
 
 h1 {
   font-size: 56px;
+  line-height: 1;
   letter-spacing: -1.68px;
-  margin: 32px 0;
 
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  margin-bottom: 32px;
 }
+
+
+/* =========================
+   H2
+   ========================= */
 
 h2 {
   font-size: 24px;
-  line-height: 118%;
+  line-height: 1.18;
   letter-spacing: -0.24px;
-  margin: 0 0 8px;
 
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  margin-bottom: 8px;
 }
+
+
+/* =========================
+   H3
+   ========================= */
+
+h3 {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
 
 p {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+ul,
+ol {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   CODE
+   ========================================================= */
 
 code,
 .counter {
   font-family: var(--mono);
+
   display: inline-flex;
+
   border-radius: 4px;
+
   color: var(--text-h);
 }
 
+
 code {
-  font-size: 15px;
-  line-height: 135%;
+  font-size: 14px;
+  line-height: 1.35;
+
   padding: 4px 8px;
+
   background: var(--code-bg);
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   MOBILE SAFETY
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 44px;
+    letter-spacing: -1.2px;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: clamp(40px, 7vw, 48px);
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  html {
+    min-width: 320px;
+  }
+
+  body {
+    min-width: 320px;
+    font-size: 15px;
+  }
+
+  #root {
+    min-width: 320px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 11vw, 46px);
+    line-height: 0.98;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.15px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: clamp(34px, 10.8vw, 42px);
+    letter-spacing: -0.8px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
 }

@@ -9,8 +9,19 @@
   --white: #fff;
 }
 
+/* =========================
+   GLOBAL RESET
+========================= */
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -18,34 +29,45 @@ body {
   background: #fff;
   color: var(--navy);
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea {
+  font-family: inherit;
 }
 
 section {
   scroll-margin-top: 86px;
 }
 
-
 /* =========================
-   SECTION BOUNDARY SPACING
+   MAIN / SECTION BOUNDARIES
 ========================= */
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0;
 }
 
-
-/* =========================
-   GLOBAL SECTIONS
-========================= */
-
 .section {
+  width: 100%;
   padding: 52px 6vw;
 }
 
+/* =========================
+   SECTION HEADINGS
+========================= */
+
 .section-heading {
-  margin-bottom: 30px;
+  margin: 0 0 30px;
   text-align: center;
 }
 
@@ -54,6 +76,7 @@ main {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.16em;
+  line-height: 1.2;
   text-transform: uppercase;
   color: var(--blue);
 }
@@ -65,7 +88,6 @@ main {
   letter-spacing: -0.045em;
   font-weight: 700;
 }
-
 
 /* =========================
    HERO
@@ -89,7 +111,7 @@ main {
 .hero-container {
   width: 100%;
   max-width: 1320px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
   align-items: center;
@@ -97,7 +119,14 @@ main {
 }
 
 .hero-left {
+  width: 100%;
   max-width: 590px;
+  text-align: left;
+}
+
+.hero-right {
+  width: 100%;
+  min-width: 0;
 }
 
 .eyebrow {
@@ -106,6 +135,7 @@ main {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.16em;
+  line-height: 1.4;
 }
 
 .hero h1 {
@@ -134,6 +164,7 @@ main {
 
 .hero-actions {
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-top: 28px;
 }
@@ -149,6 +180,9 @@ main {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.06em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .hero-btn.primary {
@@ -166,7 +200,6 @@ main {
   font-size: 16px;
 }
 
-
 /* =========================
    FOUNDATION
 ========================= */
@@ -177,14 +210,16 @@ main {
 
 .foundation-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .foundation-card {
+  min-width: 0;
   border: 1px solid var(--line);
   background: #fff;
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .foundation-card:hover {
@@ -197,16 +232,17 @@ main {
   height: 175px;
   position: relative;
   overflow: hidden;
-  background: #0b132b;
+  background: var(--navy);
 }
 
 .foundation-image img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
   opacity: 1;
   filter: none;
-  transition: 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .foundation-card:hover .foundation-image img {
@@ -221,6 +257,7 @@ main {
     rgba(11, 19, 43, 0.78),
     rgba(0, 102, 255, 0.28)
   );
+  pointer-events: none;
 }
 
 .foundation-image-lines {
@@ -237,6 +274,7 @@ main {
       transparent 1px
     );
   background-size: 26px 26px;
+  pointer-events: none;
 }
 
 .foundation-image span {
@@ -259,13 +297,13 @@ main {
 }
 
 .foundation-card-body {
-  text-align: center;
   min-height: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  text-align: center;
 }
 
 .card-number,
@@ -279,6 +317,7 @@ main {
 .foundation-card h3 {
   margin: 11px 0 8px;
   font-size: 25px;
+  line-height: 1.15;
   letter-spacing: -0.04em;
 }
 
@@ -289,7 +328,6 @@ main {
   font-size: 11px;
   line-height: 1.75;
 }
-
 
 /* =========================
    TECHNOLOGY DOMAINS
@@ -309,16 +347,18 @@ main {
 
 .domains-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 5px;
 }
 
 .domain-card {
+  min-width: 0;
+  overflow: hidden;
   background: #fff;
   border: 1px solid #d7e3ef;
-  overflow: hidden;
   text-align: center;
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .domain-card:hover {
@@ -327,16 +367,21 @@ main {
   box-shadow: 0 18px 42px rgba(0, 102, 255, 0.11);
 }
 
+/* =========================
+   DOMAIN VISUAL
+========================= */
+
 .domain-visual {
   height: 175px;
   position: relative;
   overflow: hidden;
-  background: #0b132b;
+  background: var(--navy);
 }
 
 .domain-visual img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
   opacity: 0.72;
   filter: saturate(0.85);
@@ -352,14 +397,20 @@ main {
   );
 }
 
+/* =========================
+   DOMAIN ART
+========================= */
+
 .domain-art {
   height: 175px;
   position: relative;
   overflow: hidden;
-  background: #0b132b;
+  background: var(--navy);
 }
 
 .domain-art img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
@@ -378,6 +429,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 3;
   background: linear-gradient(
     180deg,
     rgba(11, 19, 43, 0) 45%,
@@ -386,32 +438,25 @@ main {
   pointer-events: none;
 }
 
-.domain-art span {
-  position: absolute;
-  z-index: 2;
-  left: 14px;
-  bottom: 12px;
-  color: #fff;
-  font-size: 8px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
-}
-
 .domain-art::before {
   content: "";
   position: absolute;
+  z-index: 2;
   width: 155px;
   height: 155px;
+  top: 50%;
+  left: 50%;
+  margin: -77.5px 0 0 -77.5px;
   border: 1px solid rgba(0, 102, 255, 0.14);
   border-radius: 50%;
   animation: domainOrbit 9s linear infinite;
+  pointer-events: none;
 }
 
 .domain-art-grid {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background-image:
     linear-gradient(
       rgba(0, 102, 255, 0.05) 1px,
@@ -423,31 +468,57 @@ main {
       transparent 1px
     );
   background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.domain-art span {
+  position: absolute;
+  z-index: 5;
+  left: 14px;
+  bottom: 12px;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
 .domain-art strong {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: grid;
+  place-items: center;
   color: #0066ff;
   font-size: 28px;
   letter-spacing: -0.04em;
+  pointer-events: none;
 }
 
 .domain-art i,
 .domain-art b {
   position: absolute;
+  z-index: 4;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #00d2ff;
   box-shadow: 0 0 0 5px rgba(0, 210, 255, 0.1);
+  pointer-events: none;
 }
 
 .domain-art i {
+  top: 50%;
+  left: 50%;
+  margin: -3.5px 0 0 -3.5px;
   animation: domainDot 4.5s linear infinite;
 }
 
 .domain-art b {
+  top: 50%;
+  left: 50%;
+  margin: -3.5px 0 0 -3.5px;
   animation: domainDotReverse 5.5s linear infinite;
 }
 
@@ -479,18 +550,23 @@ main {
   letter-spacing: 0.12em;
 }
 
+/* =========================
+   DOMAIN CONTENT
+========================= */
+
 .domain-content {
-  padding: 18px 16px 22px;
   min-height: 145px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 18px 16px 22px;
 }
 
 .domain-content h3 {
   margin: 9px 0 8px;
   font-size: 20px;
+  line-height: 1.15;
   letter-spacing: -0.035em;
 }
 
@@ -501,7 +577,6 @@ main {
   font-size: 10px;
   line-height: 1.65;
 }
-
 
 /* =========================
    DOMAIN ANIMATIONS
@@ -563,7 +638,6 @@ main {
   }
 }
 
-
 /* =========================
    ABOUT
 ========================= */
@@ -573,8 +647,9 @@ main {
 }
 
 .about-container {
+  width: 100%;
   max-width: 1220px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -582,6 +657,7 @@ main {
 }
 
 .about-image-area {
+  min-width: 0;
   display: flex;
   justify-content: center;
 }
@@ -608,6 +684,7 @@ main {
 .about-frame img {
   width: 100%;
   aspect-ratio: 4 / 3;
+  display: block;
   object-fit: cover;
 }
 
@@ -652,6 +729,7 @@ main {
 }
 
 .about-content {
+  width: 100%;
   max-width: 530px;
 }
 
@@ -687,7 +765,6 @@ main {
   font-size: 15px;
 }
 
-
 /* =========================
    PROJECTS
 ========================= */
@@ -698,7 +775,7 @@ main {
 
 .projects-heading-row {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 25px;
 }
@@ -711,8 +788,11 @@ main {
   gap: 14px;
   border: 1px solid var(--line);
   background: #fff;
+  color: var(--navy);
   font-size: 9px;
   font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .view-projects-btn span {
@@ -721,14 +801,16 @@ main {
 
 .home-projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
 .home-project-card {
+  min-width: 0;
+  overflow: hidden;
   background: #fff;
   border: 1px solid var(--line);
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .home-project-card:hover {
@@ -745,16 +827,18 @@ main {
 .home-project-image img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
-  transition: 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
-.home-project-card:hover img {
+.home-project-card:hover .home-project-image img {
   transform: scale(1.04);
 }
 
 .home-project-image span {
   position: absolute;
+  z-index: 2;
   top: 12px;
   left: 12px;
   color: #fff;
@@ -765,6 +849,7 @@ main {
 }
 
 .home-project-footer {
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -773,13 +858,16 @@ main {
 }
 
 .home-project-footer h3 {
+  min-width: 0;
   margin: 0;
   font-size: 19px;
+  line-height: 1.2;
   letter-spacing: -0.035em;
 }
 
 .home-project-footer .project-actions {
   margin-left: auto;
+  flex-shrink: 0;
   display: flex;
   gap: 7px;
 }
@@ -795,11 +883,15 @@ main {
   padding: 0 10px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: var(--blue);
   color: #fff;
+  border: 1px solid var(--blue);
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.1em;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .home-project-footer .live-button.disabled,
@@ -814,14 +906,16 @@ main {
 .home-project-footer .project-detail-icon {
   width: 29px;
   height: 29px;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #cfe0f3;
+  background: #fff;
   color: var(--blue);
   font-size: 14px;
+  text-decoration: none;
 }
-
 
 /* =========================
    APPLICATION MODAL
@@ -836,6 +930,7 @@ main {
   place-items: center;
   background: rgba(11, 19, 43, 0.56);
   backdrop-filter: blur(8px);
+  overflow-y: auto;
 }
 
 .application-modal {
@@ -869,7 +964,7 @@ main {
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .modal-visual p {
@@ -892,6 +987,7 @@ main {
 }
 
 .application-form {
+  min-width: 0;
   padding: 34px;
 }
 
@@ -912,6 +1008,7 @@ main {
 .form-heading h3 {
   margin: 6px 0 20px;
   font-size: 28px;
+  line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
@@ -922,6 +1019,7 @@ main {
 }
 
 .form-field {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -942,12 +1040,19 @@ main {
 .application-form input,
 .application-form textarea {
   width: 100%;
+  max-width: 100%;
   padding: 11px 12px;
   border: 1px solid var(--line);
+  border-radius: 0;
   background: #fff;
   color: var(--navy);
   outline: 0;
   font: 500 11px "Inter", sans-serif;
+}
+
+.application-form textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
 .application-form input:focus,
@@ -973,12 +1078,12 @@ main {
   color: #fff;
   font: 800 9px "Inter", sans-serif;
   letter-spacing: 0.08em;
+  cursor: pointer;
 }
 
 .form-footer button span {
   margin-left: 12px;
 }
-
 
 /* =========================
    SUCCESS TOAST
@@ -989,7 +1094,7 @@ main {
   z-index: 6000;
   top: 95px;
   right: 22px;
-  max-width: 390px;
+  max-width: min(390px, calc(100vw - 44px));
   padding: 13px 16px;
   background: #0b132b;
   color: #fff;
@@ -1009,40 +1114,38 @@ main {
   color: #0b132b;
 }
 
-
 /* =========================
-   EXTRA SECTION TOP SPACING
-   About ADIC
-   Technology Domains
-   Projects
+   SECTION SPACING
+   Keep sections visually tight
 ========================= */
 
 .about,
 .domains,
 .projects {
-  padding-top: 40px !important;
+  padding-top: 40px;
 }
-
 
 /* =========================
    TABLET
 ========================= */
 
 @media (max-width: 950px) {
+  .section {
+    padding: 44px 5vw;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 55px 5vw;
+  }
 
   .hero-container,
   .about-container {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding-top: 44px;
-    padding-bottom: 44px;
-  }
-
-  .section {
-    padding-top: 44px;
-    padding-bottom: 44px;
+  .hero-container {
+    gap: 40px;
   }
 
   .hero-left {
@@ -1057,11 +1160,15 @@ main {
   .foundation-grid,
   .domains-grid,
   .home-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-container {
     gap: 45px;
+  }
+
+  .about-content {
+    max-width: 700px;
   }
 
   .application-modal {
@@ -1072,31 +1179,73 @@ main {
     display: none;
   }
 
+  .about,
+  .domains,
+  .projects {
+    padding-top: 36px;
+  }
 }
 
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media (max-width: 760px) {
+  .hero-container {
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 8vw, 68px);
+  }
+
+  .about-container {
+    gap: 35px;
+  }
+
+  .projects-heading-row {
+    align-items: flex-start;
+  }
+
+  .view-projects-btn {
+    flex-shrink: 0;
+  }
+}
 
 /* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 620px) {
-
   .section {
     padding: 34px 20px;
   }
 
   .hero {
+    min-height: auto;
     padding: 34px 20px 38px;
+    margin-top: 0;
+  }
+
+  .hero-container {
+    gap: 30px;
   }
 
   .hero h1 {
     font-size: 48px;
+    line-height: 0.98;
+  }
+
+  .hero-description {
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.75;
   }
 
   .hero-actions {
+    width: 100%;
     flex-direction: row;
     align-items: stretch;
-    width: 100%;
   }
 
   .hero-btn {
@@ -1104,6 +1253,11 @@ main {
     min-width: 0;
     padding: 0 10px;
     gap: 8px;
+    font-size: 9px;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
   }
 
   .section-heading h2 {
@@ -1123,12 +1277,58 @@ main {
     height: 165px;
   }
 
+  .foundation-card-body {
+    min-height: 145px;
+  }
+
+  .domain-content {
+    min-height: 135px;
+  }
+
+  .about,
+  .domains,
+  .projects {
+    padding-top: 30px;
+  }
+
+  .about-container {
+    gap: 30px;
+  }
+
   .about-frame-outer {
     width: calc(100% - 25px);
+    padding: 18px 16px 20px 22px;
+  }
+
+  .about-content h2 {
+    font-size: 42px;
+  }
+
+  .projects-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .view-projects-btn {
+    width: auto;
+  }
+
+  .home-project-footer {
+    padding: 12px;
+  }
+
+  .home-project-footer h3 {
+    font-size: 17px;
   }
 
   .application-modal {
+    width: 100%;
     max-height: calc(100vh - 20px);
+  }
+
+  .modal-overlay {
+    padding: 10px;
   }
 
   .application-form {
@@ -1143,30 +1343,74 @@ main {
     left: 15px;
     right: 15px;
     top: 82px;
+    max-width: none;
   }
-
-  /*
-    Keep the About → Projects gap at 10px on mobile too.
-  */
-
-  .about + .projects {
-    margin-top: 10px;
-  }
-
-  /*
-    Extra top spacing for mobile sections.
-  */
-
-  .about,
-  .domains,
-  .projects {
-    padding-top: 30px !important;
-  }
-
 }
+
 /* =========================
-   FINAL HERO ALIGNMENT
+   VERY SMALL PHONES
 ========================= */
-.hero-left {
-  text-align: left;
+
+@media (max-width: 400px) {
+  .section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero-actions {
+    gap: 7px;
+  }
+
+  .hero-btn {
+    padding: 0 7px;
+    font-size: 8px;
+  }
+
+  .hero-btn span {
+    font-size: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 33px;
+  }
+
+  .about-content h2 {
+    font-size: 38px;
+  }
+
+  .home-project-footer h3 {
+    font-size: 15px;
+  }
+
+  .home-project-footer .live-button {
+    padding: 0 7px;
+    font-size: 7px;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

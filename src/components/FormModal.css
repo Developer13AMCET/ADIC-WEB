@@ -1,1 +1,571 @@
-.adic-modal-overlay{position:fixed;inset:0;z-index:5000;padding:20px;display:grid;place-items:center;background:rgba(11,19,43,.58);backdrop-filter:blur(9px);font-family:"Inter",sans-serif}.adic-modal{position:relative;width:min(1040px,100%);max-height:calc(100vh - 40px);overflow:auto;display:grid;grid-template-columns:.72fr 1.28fr;background:#fff;box-shadow:0 30px 100px rgba(0,0,0,.28)}.adic-modal-close{position:absolute;z-index:5;right:12px;top:12px;width:35px;height:35px;border:1px solid rgba(11,19,43,.1);background:#fff;color:#0b132b;font:400 25px/1 "Inter",sans-serif;cursor:pointer}.adic-modal-visual{min-height:560px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#0b132b,#0066ff 72%,#00aee8);color:#fff}.adic-modal-visual>span{font-size:8px;font-weight:800;letter-spacing:.16em;color:#bfeeff}.adic-modal-visual p{margin:0 0 14px;font-size:9px;font-weight:800;letter-spacing:.17em}.adic-modal-visual h2{margin:0;font-size:40px;line-height:.98;letter-spacing:-.055em;font-weight:700}.adic-modal-visual h2 strong{color:#00d2ff}.adic-modal-visual small{display:block;margin-top:18px;color:#d9e9f8;font-size:10px;line-height:1.7}.adic-form{padding:34px 38px}.adic-form-heading>span{color:#0066ff;font-size:8px;font-weight:800;letter-spacing:.16em}.adic-form-heading h3{margin:6px 0 22px;font-size:30px;line-height:1;letter-spacing:-.045em}.adic-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.adic-field{display:flex;flex-direction:column;gap:6px;min-width:0}.adic-field.full{grid-column:1/-1}.adic-field label{font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#64748b}.adic-field input,.adic-field textarea,.adic-field select{box-sizing:border-box;width:100%;padding:11px 12px;border:1px solid #dce5ef;border-radius:0;background:#fff;color:#0b132b;outline:none;font:500 11px/1.4 "Inter",sans-serif;transition:border-color .2s,box-shadow .2s}.adic-field textarea{resize:vertical;min-height:90px}.adic-field select{appearance:auto}.adic-field input:focus,.adic-field textarea:focus,.adic-field select:focus{border-color:#0066ff;box-shadow:0 0 0 3px rgba(0,102,255,.08)}.adic-form-error{margin:13px 0 0;color:#d33;font-size:10px;font-weight:600}.adic-form-submit{display:block;margin:20px auto 0;height:43px;padding:0 20px;border:0;background:#0b132b;color:#fff;font:800 9px/1 "Inter",sans-serif;letter-spacing:.09em;cursor:pointer;transition:.2s}.adic-form-submit:hover:not(:disabled){background:#0066ff;transform:translateY(-1px)}.adic-form-submit:disabled{opacity:.65;cursor:wait}.adic-form-submit span{margin-left:10px;font-size:14px}@media(max-width:850px){.adic-modal{grid-template-columns:1fr}.adic-modal-visual{min-height:190px;padding:25px 28px}.adic-modal-visual h2{font-size:30px}.adic-form{padding:28px}}@media(max-width:560px){.adic-modal-overlay{padding:10px}.adic-modal{max-height:calc(100vh - 20px)}.adic-form{padding:24px 18px}.adic-form-grid{grid-template-columns:1fr}.adic-field.full{grid-column:auto}.adic-modal-visual{min-height:160px;padding:22px}.adic-modal-close{right:8px;top:8px}.adic-form-heading h3{font-size:26px}}
+/* =========================================================
+   ADIC FORM MODAL
+========================================================= */
+
+.adic-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(11, 19, 43, 0.58);
+
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+
+  font-family: "Inter", sans-serif;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.adic-modal-overlay *,
+.adic-modal-overlay *::before,
+.adic-modal-overlay *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MODAL CONTAINER
+========================================================= */
+
+.adic-modal {
+  position: relative;
+
+  width: min(1040px, 100%);
+  max-height: calc(100vh - 40px);
+
+  overflow: auto;
+  overscroll-behavior: contain;
+
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+
+  background: #fff;
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.28);
+
+  scrollbar-width: thin;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.adic-modal-close {
+  position: absolute;
+  z-index: 5;
+
+  top: 12px;
+  right: 12px;
+
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(11, 19, 43, 0.1);
+
+  background: #fff;
+  color: #0b132b;
+
+  font: 400 25px/1 "Inter", sans-serif;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.adic-modal-close:hover {
+  background: #0b132b;
+  color: #fff;
+  border-color: #0b132b;
+}
+
+
+/* =========================================================
+   LEFT VISUAL PANEL
+========================================================= */
+
+.adic-modal-visual {
+  min-height: 560px;
+
+  padding: 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0b132b,
+      #0066ff 72%,
+      #00aee8
+    );
+
+  color: #fff;
+}
+
+.adic-modal-visual > span {
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  color: #bfeeff;
+}
+
+.adic-modal-visual > div {
+  max-width: 100%;
+}
+
+.adic-modal-visual p {
+  margin: 0 0 14px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.17em;
+}
+
+.adic-modal-visual h2 {
+  margin: 0;
+
+  font-size: 40px;
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 700;
+}
+
+.adic-modal-visual h2 strong {
+  color: #00d2ff;
+}
+
+.adic-modal-visual small {
+  display: block;
+
+  max-width: 320px;
+
+  margin-top: 18px;
+
+  color: #d9e9f8;
+
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.adic-form {
+  min-width: 0;
+
+  padding: 34px 38px;
+
+  background: #fff;
+}
+
+.adic-form-heading > span {
+  color: #0066ff;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.adic-form-heading h3 {
+  margin: 6px 0 22px;
+
+  color: #0b132b;
+
+  font-size: 30px;
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.adic-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+
+  gap: 13px;
+}
+
+.adic-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.adic-field.full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   FORM LABELS
+========================================================= */
+
+.adic-field label {
+  color: #64748b;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FORM CONTROLS
+========================================================= */
+
+.adic-field input,
+.adic-field textarea,
+.adic-field select {
+  width: 100%;
+  min-width: 0;
+
+  padding: 11px 12px;
+
+  border: 1px solid #dce5ef;
+  border-radius: 0;
+
+  background: #fff;
+  color: #0b132b;
+
+  outline: none;
+
+  font: 500 11px/1.4 "Inter", sans-serif;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.adic-field input::placeholder,
+.adic-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.adic-field textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+.adic-field select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.adic-field input:focus,
+.adic-field textarea:focus,
+.adic-field select:focus {
+  border-color: #0066ff;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 102, 255, 0.08);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.adic-form-error {
+  margin: 13px 0 0;
+
+  color: #d33;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.adic-form-submit {
+  display: block;
+
+  width: auto;
+  min-height: 43px;
+
+  margin: 20px auto 0;
+  padding: 0 20px;
+
+  border: 0;
+
+  background: #0b132b;
+  color: #fff;
+
+  font: 800 9px/1 "Inter", sans-serif;
+
+  letter-spacing: 0.09em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.adic-form-submit:hover:not(:disabled) {
+  background: #0066ff;
+
+  transform: translateY(-1px);
+}
+
+.adic-form-submit:disabled {
+  opacity: 0.65;
+
+  cursor: wait;
+}
+
+.adic-form-submit span {
+  margin-left: 10px;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .adic-modal {
+    grid-template-columns: 1fr;
+
+    max-height: calc(100vh - 40px);
+  }
+
+  .adic-modal-visual {
+    min-height: 190px;
+
+    padding: 25px 28px;
+  }
+
+  .adic-modal-visual h2 {
+    font-size: 30px;
+  }
+
+  .adic-modal-visual small {
+    margin-top: 12px;
+  }
+
+  .adic-form {
+    padding: 28px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .adic-modal-overlay {
+    padding: 10px;
+
+    place-items: center;
+  }
+
+  .adic-modal {
+    width: 100%;
+
+    max-height: calc(100vh - 20px);
+  }
+
+  .adic-modal-visual {
+    min-height: 160px;
+
+    padding: 22px;
+  }
+
+  .adic-modal-visual h2 {
+    font-size: 28px;
+  }
+
+  .adic-modal-visual p {
+    margin-bottom: 10px;
+  }
+
+  .adic-modal-visual small {
+    font-size: 9px;
+    line-height: 1.55;
+  }
+
+  .adic-modal-close {
+    top: 8px;
+    right: 8px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+  .adic-form {
+    padding: 24px 18px;
+  }
+
+  .adic-form-heading h3 {
+    margin-bottom: 18px;
+
+    font-size: 26px;
+  }
+
+  .adic-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .adic-field.full {
+    grid-column: auto;
+  }
+
+  .adic-form-submit {
+    width: 100%;
+
+    margin-top: 18px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .adic-modal-overlay {
+    padding: 7px;
+  }
+
+  .adic-modal {
+    max-height: calc(100vh - 14px);
+  }
+
+  .adic-modal-visual {
+    min-height: 145px;
+
+    padding: 19px;
+  }
+
+  .adic-modal-visual h2 {
+    font-size: 25px;
+  }
+
+  .adic-form {
+    padding: 20px 15px;
+  }
+
+  .adic-form-heading h3 {
+    font-size: 24px;
+  }
+
+  .adic-field input,
+  .adic-field textarea,
+  .adic-field select {
+    padding: 10px;
+  }
+
+  .adic-form-submit {
+    min-height: 42px;
+    padding: 0 16px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 340px) {
+
+  .adic-modal-overlay {
+    padding: 5px;
+  }
+
+  .adic-modal {
+    max-height: calc(100vh - 10px);
+  }
+
+  .adic-modal-visual {
+    min-height: 135px;
+
+    padding: 17px;
+  }
+
+  .adic-modal-visual h2 {
+    font-size: 23px;
+  }
+
+  .adic-form {
+    padding: 18px 13px;
+  }
+
+  .adic-form-heading h3 {
+    font-size: 22px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .adic-modal-close,
+  .adic-field input,
+  .adic-field textarea,
+  .adic-field select,
+  .adic-form-submit {
+    transition: none;
+  }
+}

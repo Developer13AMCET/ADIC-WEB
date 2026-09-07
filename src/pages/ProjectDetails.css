@@ -1,9 +1,400 @@
-.details-page{background:#fff}.details-hero{min-height:560px;padding:80px 7vw;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;background:linear-gradient(135deg,#f8fafc,#eef6ff)}.details-hero h1{margin:0;font-size:clamp(48px,7vw,86px);line-height:.95;letter-spacing:-.065em}.details-hero p:not(.section-label){max-width:560px;margin-top:22px;color:#64748b;font-size:14px;line-height:1.75}.details-image{aspect-ratio:16/10;overflow:hidden;border:1px solid #dce5ef;background:#eef3f8}.details-image img{width:100%;height:100%;object-fit:cover}.details-actions{display:flex;align-items:center;gap:12px;margin-top:28px}.details-actions>a:last-child{font-size:10px;font-weight:800;color:#0066ff}.details-copy{display:grid;grid-template-columns:1fr 1fr;gap:80px}.details-copy h2{font-size:clamp(30px,4vw,48px);line-height:1.02;letter-spacing:-.05em}.details-copy>p{color:#64748b;font-size:13px;line-height:1.9}.not-found{min-height:60vh;padding:100px 7vw}.not-found h1{font-size:60px}.not-found a{display:inline-block;margin-top:20px;color:#0066ff;font-weight:700}@media(max-width:800px){.details-hero,.details-copy{grid-template-columns:1fr;gap:35px}.details-hero{padding:60px 20px}.details-copy{padding:60px 20px}}
+/* =========================================================
+   PROJECT DETAILS PAGE
+========================================================= */
 
-/* Exact 5px spacing from navbar to project details and between page sections */
-.details-hero{margin-top:5px;padding-top:0;padding-bottom:0}
-.details-copy{margin-top:5px}
-@media(max-width:800px){
-  .details-hero{margin-top:5px;padding-top:0;padding-bottom:0}
-  .details-copy{margin-top:5px;padding-top:0;padding-bottom:0}
+.details-page {
+    width: 100%;
+    min-width: 0;
+
+    background: #fff;
+    color: #0b132b;
+
+    overflow-x: hidden;
+}
+
+.details-page *,
+.details-page *::before,
+.details-page *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PROJECT HERO
+========================================================= */
+
+.details-hero {
+    width: 100%;
+    min-height: 560px;
+
+    margin-top: 5px;
+
+    padding: 60px 7vw;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 70px;
+
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef6ff
+    );
+}
+
+.details-hero > div {
+    min-width: 0;
+}
+
+.details-hero h1 {
+    margin: 0;
+
+    font-size: clamp(
+        48px,
+        7vw,
+        86px
+    );
+
+    line-height: 0.95;
+
+    letter-spacing: -0.065em;
+
+    overflow-wrap: anywhere;
+}
+
+.details-hero p:not(.section-label) {
+    max-width: 560px;
+
+    margin: 22px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.details-image {
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    overflow: hidden;
+
+    border: 1px solid #dce5ef;
+
+    background: #eef3f8;
+}
+
+.details-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   PROJECT ACTIONS
+========================================================= */
+
+.details-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.details-actions > a {
+    text-decoration: none;
+}
+
+.details-actions > a:last-child {
+    color: #0066ff;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PROJECT COPY
+========================================================= */
+
+.details-copy {
+    width: 100%;
+
+    margin-top: 5px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 80px;
+
+    min-width: 0;
+}
+
+.details-copy > div,
+.details-copy > p {
+    min-width: 0;
+}
+
+.details-copy h2 {
+    margin: 0;
+
+    font-size: clamp(
+        30px,
+        4vw,
+        48px
+    );
+
+    line-height: 1.02;
+
+    letter-spacing: -0.05em;
+}
+
+.details-copy > p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   NOT FOUND
+========================================================= */
+
+.not-found {
+    width: 100%;
+    min-height: 60vh;
+
+    padding: 100px 7vw;
+}
+
+.not-found h1 {
+    margin: 0;
+
+    font-size: clamp(
+        48px,
+        6vw,
+        60px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+}
+
+.not-found a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #0066ff;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .details-hero {
+        gap: 45px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .details-copy {
+        gap: 45px;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .details-hero {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+
+        gap: 35px;
+
+        padding: 45px 20px;
+    }
+
+    .details-hero h1 {
+        font-size: clamp(
+            48px,
+            11vw,
+            70px
+        );
+    }
+
+    .details-hero p:not(.section-label) {
+        max-width: 650px;
+    }
+
+    .details-image {
+        width: 100%;
+    }
+
+    .details-copy {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 45px 20px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+    .details-hero {
+        margin-top: 5px;
+
+        padding: 35px 20px;
+
+        gap: 25px;
+    }
+
+    .details-hero h1 {
+        font-size: clamp(
+            42px,
+            12vw,
+            60px
+        );
+    }
+
+    .details-hero p:not(.section-label) {
+        margin-top: 18px;
+
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .details-actions {
+        align-items: flex-start;
+        flex-direction: column;
+
+        margin-top: 22px;
+
+        gap: 12px;
+    }
+
+    .details-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .details-copy {
+        margin-top: 5px;
+
+        padding: 35px 20px;
+
+        gap: 25px;
+    }
+
+    .details-copy h2 {
+        font-size: clamp(
+            30px,
+            9vw,
+            42px
+        );
+    }
+
+    .details-copy > p {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .not-found {
+        min-height: 55vh;
+
+        padding: 70px 20px;
+    }
+
+    .not-found h1 {
+        font-size: clamp(
+            42px,
+            12vw,
+            56px
+        );
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .details-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .details-hero h1 {
+        font-size: 40px;
+    }
+
+    .details-copy {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .details-copy h2 {
+        font-size: 29px;
+    }
+
+    .not-found {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .details-page * {
+        scroll-behavior: auto;
+    }
 }

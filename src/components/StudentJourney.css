@@ -5,6 +5,7 @@
   overflow: hidden;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -14,10 +15,20 @@
 .visual-grid {
   position: absolute;
   inset: 0;
+
   background-image:
-    linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+    linear-gradient(
+      rgba(15, 23, 42, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(15, 23, 42, 0.045) 1px,
+      transparent 1px
+    );
+
   background-size: 34px 34px;
+
   pointer-events: none;
 }
 
@@ -31,17 +42,17 @@
 .glow-one {
   width: 260px;
   height: 260px;
-  background: rgba(14, 165, 233, 0.09);
   top: 80px;
   right: 18%;
+  background: rgba(14, 165, 233, 0.09);
 }
 
 .glow-two {
   width: 220px;
   height: 220px;
-  background: rgba(99, 102, 241, 0.07);
   bottom: 30px;
   left: 15%;
+  background: rgba(99, 102, 241, 0.07);
 }
 
 /* =========================
@@ -62,18 +73,25 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #64748b;
+
+  box-sizing: border-box;
 }
 
 .status-dot {
   width: 6px;
   height: 6px;
+  flex-shrink: 0;
+
   border-radius: 50%;
   background: #0ea5e9;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.08);
+
+  box-shadow:
+    0 0 0 4px rgba(14, 165, 233, 0.08);
 }
 
 .visual-code {
   margin-left: auto;
+
   font-size: 9px;
   letter-spacing: 0.1em;
   color: #94a3b8;
@@ -85,17 +103,20 @@
 
 .logo-stage {
   position: absolute;
+
   top: 48%;
   left: 50%;
 
   width: 330px;
   height: 330px;
 
-  transform: translate(-50%, -50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -104,34 +125,41 @@
 
 .logo-ring {
   position: absolute;
-  left: 50%;
-  top: 50%;
 
-  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 
   border-radius: 50%;
   border: 1px solid rgba(15, 23, 42, 0.12);
+
+  transform: translate(-50%, -50%);
 }
 
 .ring-one {
   width: 170px;
   height: 170px;
+
   border-color: rgba(14, 165, 233, 0.28);
+
   animation: ringPulse 5s ease-in-out infinite;
 }
 
 .ring-two {
   width: 240px;
   height: 240px;
+
   border-color: rgba(15, 23, 42, 0.1);
+
   animation: ringRotate 18s linear infinite;
 }
 
 .ring-three {
   width: 315px;
   height: 315px;
+
   border-color: rgba(15, 23, 42, 0.07);
   border-style: dashed;
+
   animation: ringRotateReverse 25s linear infinite;
 }
 
@@ -141,12 +169,14 @@
 
 .logo-aura {
   position: absolute;
+
   width: 160px;
   height: 160px;
 
   border-radius: 50%;
 
   background: rgba(14, 165, 233, 0.08);
+
   filter: blur(20px);
 
   animation: auraPulse 4s ease-in-out infinite;
@@ -163,16 +193,16 @@
   width: 155px;
   height: 155px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 0;
 
   border: 1px solid rgba(15, 23, 42, 0.12);
   border-radius: 50%;
 
   background: rgba(255, 255, 255, 0.92);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   cursor: pointer;
 
@@ -196,6 +226,7 @@
 .hero-logo-button img {
   width: 72%;
   height: 72%;
+
   object-fit: contain;
   border-radius: 50%;
 }
@@ -207,6 +238,7 @@
 .logo-stage::before,
 .logo-stage::after {
   content: "";
+
   position: absolute;
 
   width: 8px;
@@ -221,6 +253,8 @@
     0 0 20px rgba(14, 165, 233, 0.35);
 
   z-index: 4;
+
+  pointer-events: none;
 }
 
 .logo-stage::before {
@@ -260,29 +294,34 @@
 .label-top {
   top: 7px;
   left: 50%;
+
   transform: translateX(-50%);
 }
 
 .label-right {
-  right: -2px;
   top: 50%;
+  right: -2px;
+
   transform: translateY(-50%);
 }
 
 .label-bottom {
   bottom: -30px;
   left: 50%;
+
   transform: translateX(-50%);
 }
 
 .label-left {
-  left: -2px;
   top: 50%;
+  left: -2px;
+
   transform: translateY(-50%);
 }
 
 /* =========================
    CURRENT STAGE
+   DESKTOP + TABLET ONLY
 ========================= */
 
 .journey-status {
@@ -345,6 +384,8 @@
   width: 140px;
   height: 2px;
 
+  flex-shrink: 0;
+
   margin-bottom: 9px;
 
   overflow: hidden;
@@ -389,9 +430,11 @@
   position: relative;
 
   flex: 1;
+  min-width: 0;
 
   display: flex;
   align-items: center;
+
   gap: 9px;
 
   padding: 13px 0 0;
@@ -547,6 +590,11 @@
     min-height: 480px;
   }
 
+  .visual-topline {
+    left: 24px;
+    right: 24px;
+  }
+
   .journey-status {
     left: 28px;
     right: 28px;
@@ -616,22 +664,23 @@
     bottom: -38px;
   }
 
-  /*
-    MOBILE:
-    Hide CURRENT STAGE
-    but KEEP IDEA / DESIGN / BUILD
-  */
+  /* =======================================================
+     MOBILE:
+     CURRENT STAGE IS HIDDEN
+     
+     IDEA / DESIGN / BUILD REMAIN VISIBLE
+  ======================================================= */
 
   .journey-status {
     display: none;
   }
 
   .journey-stages {
-    display: flex;
-
     left: 20px;
     right: 20px;
     bottom: 22px;
+
+    display: flex;
   }
 
   .journey-stages button {
@@ -668,6 +717,11 @@
 @media (max-width: 420px) {
   .innovation-visual {
     min-height: 410px;
+  }
+
+  .visual-topline {
+    left: 16px;
+    right: 16px;
   }
 
   .logo-stage {
@@ -713,5 +767,69 @@
 
   .journey-stages button strong {
     font-size: 7px;
+  }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 360px) {
+  .innovation-visual {
+    min-height: 400px;
+  }
+
+  .logo-stage {
+    width: 255px;
+    height: 255px;
+  }
+
+  .ring-one {
+    width: 132px;
+    height: 132px;
+  }
+
+  .ring-two {
+    width: 188px;
+    height: 188px;
+  }
+
+  .ring-three {
+    width: 245px;
+    height: 245px;
+  }
+
+  .hero-logo-button {
+    width: 128px;
+    height: 128px;
+  }
+
+  .visual-orbit-label {
+    font-size: 8px;
+  }
+
+  .journey-stages {
+    left: 12px;
+    right: 12px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ring-one,
+  .ring-two,
+  .ring-three,
+  .logo-aura,
+  .logo-stage::before,
+  .logo-stage::after,
+  .journey-progress {
+    animation: none;
+  }
+
+  .hero-logo-button {
+    transition: none;
   }
 }

@@ -1,11 +1,27 @@
+/* =========================================================
+   PROJECTS PAGE
+========================================================= */
+
 .projects-page {
+    width: 100%;
+    min-width: 0;
+
     background: #f8fafc;
     color: #0b132b;
+
+    overflow-x: hidden;
 }
 
+.projects-page *,
+.projects-page *::before,
+.projects-page *::after {
+    box-sizing: border-box;
+}
+
+
 /* =========================================================
-   PROJECTS PAGE / HEADER-TO-HERO SPACING
-   ========================================================= */
+   HEADER → HERO SPACING
+========================================================= */
 
 .projects-page > main {
     margin: 0 !important;
@@ -18,23 +34,35 @@
     padding-top: 5px !important;
 }
 
+
 /* =========================================================
    PROJECTS HERO
-   ========================================================= */
+========================================================= */
 
 .projects-hero {
+    position: relative;
+
+    width: 100%;
     min-height: 0;
+
     padding: 28px 8vw 32px;
+
     display: flex;
     align-items: flex-start;
-    position: relative;
+
     overflow: hidden;
-    background: linear-gradient(135deg, #f8fafc, #eef6ff);
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef6ff
+    );
 }
 
 .projects-hero-grid {
     position: absolute;
     inset: 0;
+
     background-image:
         linear-gradient(
             rgba(0, 102, 255, 0.05) 1px,
@@ -45,70 +73,126 @@
             rgba(0, 102, 255, 0.05) 1px,
             transparent 1px
         );
+
     background-size: 44px 44px;
+
+    pointer-events: none;
 }
 
 .projects-hero-content {
     position: relative;
     z-index: 1;
+
     width: 100%;
+    min-width: 0;
+
     text-align: center;
 }
 
 .projects-hero h1 {
     margin: 0;
-    font-size: clamp(48px, 7vw, 84px);
+
+    font-size: clamp(
+        48px,
+        7vw,
+        84px
+    );
+
     line-height: 0.95;
     letter-spacing: -0.065em;
+
+    overflow-wrap: anywhere;
 }
+
 .projects-hero p:last-child {
     max-width: 450px;
+
     margin: 18px auto 0;
+
     color: #64748b;
+
     font-size: 13px;
     line-height: 1.7;
+
     text-align: center;
 }
+
+
 /* =========================================================
    PROJECT LIST
-   ========================================================= */
+========================================================= */
 
 .projects-list {
+    width: 100%;
+
     padding: 52px 6vw 5px;
 }
 
 .projects-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
     gap: 34px 20px;
 }
 
 .project-card {
+    min-width: 0;
+
     background: #fff;
+
     border: 1px solid #dce5ef;
-    transition: 0.25s ease;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .project-card:hover {
     transform: translateY(-4px);
+
     border-color: #8db8ed;
-    box-shadow: 0 20px 45px rgba(0, 102, 255, 0.1);
+
+    box-shadow:
+        0 20px 45px rgba(0, 102, 255, 0.1);
 }
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
 
 .project-image-wrap {
     position: relative;
+
+    width: 100%;
+
     aspect-ratio: 16 / 10;
+
     overflow: hidden;
+
     background: #eef3f8;
 }
 
 .project-image-wrap img {
+    display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     opacity: 0;
+
     transform: scale(1.02);
-    transition: 0.6s ease;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
 .project-image-wrap.is-loaded img {
@@ -119,72 +203,125 @@
     transform: scale(1.045);
 }
 
+
+/* =========================================================
+   PROJECT IMAGE OVERLAY
+========================================================= */
+
 .project-image-overlay {
     position: absolute;
     inset: 0;
+
     padding: 12px;
+
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+
     color: #fff;
+
     font-size: 7px;
     font-weight: 800;
     letter-spacing: 0.14em;
-    background: linear-gradient(
-        to bottom,
-        rgba(11, 19, 43, 0.38),
-        transparent 28%
-    );
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(11, 19, 43, 0.38),
+            transparent 28%
+        );
+
     opacity: 0;
-    transition: 0.25s;
+
+    transition: opacity 0.25s ease;
+
+    pointer-events: none;
 }
 
 .project-card:hover .project-image-overlay {
     opacity: 1;
 }
 
+
+/* =========================================================
+   PROJECT CARD FOOTER
+========================================================= */
+
 .project-card-footer {
     min-height: 70px;
+    min-width: 0;
+
     padding: 14px 15px;
+
     display: flex;
     align-items: center;
+
     gap: 10px;
+
     border-top: 1px solid #dce5ef;
 }
 
 .project-number {
+    flex: 0 0 auto;
+
     font-size: 8px;
     font-weight: 800;
+
     color: #64748b;
 }
 
 .project-card-footer h2 {
+    min-width: 0;
+
     margin: 0;
+
     font-size: 21px;
+
     letter-spacing: -0.04em;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+
+/* =========================================================
+   PROJECT ACTIONS
+========================================================= */
+
 .project-actions {
     margin-left: auto;
+
     display: flex;
+    align-items: center;
+
     gap: 7px;
+
     flex-shrink: 0;
 }
 
 .live-button {
     height: 30px;
+
     padding: 0 11px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     border: 1px solid #0066ff;
+
     background: #0066ff;
     color: #fff;
+
     font-size: 8px;
     font-weight: 800;
+
     letter-spacing: 0.1em;
+
+    text-decoration: none;
+
+    white-space: nowrap;
 }
 
 .live-button.disabled {
@@ -192,55 +329,84 @@
     cursor: default;
 }
 
+.project-card-footer .live-button {
+    opacity: 1 !important;
+}
+
+.project-card-footer .live-button.disabled {
+    background: #0066ff;
+    color: #fff;
+    border-color: #0066ff;
+}
+
 .project-detail-icon {
     width: 30px;
     height: 30px;
+
+    flex: 0 0 30px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     border: 1px solid #cfe0f3;
+
     color: #0066ff;
     background: #fff;
+
     font-size: 15px;
-    transition: 0.25s;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .project-detail-icon:hover {
     background: #0066ff;
     color: #fff;
+
     transform: translateY(-2px);
 }
 
+
 /* =========================================================
    BUILD WITH ADIC
-   CENTERED CTA SECTION
-   ========================================================= */
+========================================================= */
 
 .build-with-adic {
+    width: 100%;
+
+    margin-top: 0;
+
+    padding: 58px 6vw 62px !important;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    width: 100%;
     box-sizing: border-box;
 
     background: #0b132b;
     color: #fff;
 
-    margin-top: 0;
-    padding: 58px 6vw 62px !important;
-
     text-align: center;
+
+    overflow: hidden;
 }
+
 
 /* =========================================================
    BUILD WITH ADIC CONTENT
-   ========================================================= */
+========================================================= */
 
 .build-heading {
     width: 100%;
     max-width: 1200px;
+    min-width: 0;
 
     display: flex;
     flex-direction: column;
@@ -249,16 +415,25 @@
 
 .build-heading .section-label {
     margin: 0 0 20px;
+
     color: #0066ff;
 }
 
 .build-with-adic h2 {
+    max-width: 100%;
+
     margin: 0;
 
     color: #fff;
 
-    font-size: clamp(44px, 5vw, 72px);
+    font-size: clamp(
+        44px,
+        5vw,
+        72px
+    );
+
     line-height: 1;
+
     letter-spacing: -0.06em;
 
     white-space: nowrap;
@@ -270,31 +445,38 @@
 
 .build-heading > p:last-child {
     max-width: 620px;
+
     margin: 24px auto 0;
 
     color: #b8c4d4;
+
     font-size: 13px;
     line-height: 1.8;
 }
 
+
 /* =========================================================
    SUBMIT YOUR IDEA BUTTON
-   CENTERED UNDER CTA
-   ========================================================= */
+========================================================= */
 
 .idea-open-button {
     align-self: center;
 
     margin-top: 30px;
 
-    height: 48px;
+    min-height: 48px;
+
     padding: 0 24px;
 
     border: 0;
+
     background: #0066ff;
     color: #fff;
 
-    font: 800 10px "Inter", sans-serif;
+    font:
+        800 10px "Inter",
+        sans-serif;
+
     letter-spacing: 0.08em;
 
     cursor: pointer;
@@ -306,33 +488,46 @@
 
 .idea-open-button:hover {
     background: #00aee8;
+
     transform: translateY(-2px);
 }
 
 .idea-open-button span {
     margin-left: 12px;
+
     font-size: 15px;
 }
 
+
 /* =========================================================
    IDEA FORM
-   ========================================================= */
+========================================================= */
 
 .idea-form {
+    width: 100%;
+
     padding: 28px;
+
     border: 1px solid rgba(255, 255, 255, 0.12);
+
     background: rgba(255, 255, 255, 0.04);
 }
 
 .idea-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 15px;
 }
 
 .form-field {
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
+
     gap: 7px;
 }
 
@@ -343,8 +538,11 @@
 .form-field label {
     font-size: 8px;
     font-weight: 800;
+
     letter-spacing: 0.13em;
+
     text-transform: uppercase;
+
     color: #9fb0c6;
 }
 
@@ -352,12 +550,20 @@
 .form-field textarea,
 .form-field select {
     width: 100%;
+    min-width: 0;
+
     border: 1px solid rgba(255, 255, 255, 0.16);
+
     background: rgba(255, 255, 255, 0.06);
     color: #fff;
+
     padding: 12px 13px;
+
     outline: none;
-    font: 500 11px "Inter", sans-serif;
+
+    font:
+        500 11px "Inter",
+        sans-serif;
 }
 
 .form-field select option {
@@ -381,26 +587,35 @@
 
 .form-error {
     margin: 15px 0 0;
+
     color: #ff9c9c;
+
     font-size: 10px;
 }
 
+
 /* =========================================================
    FORM SUBMIT BUTTON
-   ========================================================= */
+========================================================= */
 
 .idea-submit {
     display: block;
+
     margin: 22px auto 0;
 
-    height: 44px;
+    min-height: 44px;
+
     padding: 0 18px;
 
     border: 0;
+
     background: #0066ff;
     color: #fff;
 
-    font: 800 10px "Inter", sans-serif;
+    font:
+        800 10px "Inter",
+        sans-serif;
+
     letter-spacing: 0.1em;
 
     cursor: pointer;
@@ -408,31 +623,25 @@
 
 .idea-submit span {
     margin-left: 12px;
+
     font-size: 15px;
 }
 
-/* =========================================================
-   LIVE BUTTON FIX
-   ========================================================= */
-
-.project-card-footer .live-button {
-    opacity: 1 !important;
-}
-
-.project-card-footer .live-button.disabled {
-    background: #0066ff;
-    color: #fff;
-    border-color: #0066ff;
-}
 
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 950px) {
 
+    .projects-list {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .build-with-adic {
@@ -444,7 +653,11 @@
     }
 
     .build-with-adic h2 {
-        font-size: clamp(40px, 6vw, 62px);
+        font-size: clamp(
+            40px,
+            6vw,
+            62px
+        );
     }
 
     .idea-open-button {
@@ -452,9 +665,35 @@
     }
 }
 
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .projects-hero {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .projects-hero h1 {
+        font-size: clamp(
+            46px,
+            10vw,
+            72px
+        );
+    }
+
+    .build-with-adic h2 {
+        white-space: normal;
+    }
+}
+
+
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 650px) {
 
@@ -469,23 +708,37 @@
         padding-top: 5px !important;
     }
 
+
     /* -----------------------------------------------------
        PROJECT HERO
-       ----------------------------------------------------- */
+    ----------------------------------------------------- */
 
     .projects-hero {
         min-height: 0;
+
         padding: 24px 20px 28px;
+
         align-items: flex-start;
     }
 
     .projects-hero h1 {
-        font-size: clamp(42px, 13vw, 62px);
+        font-size: clamp(
+            42px,
+            13vw,
+            62px
+        );
     }
+
+    .projects-hero p:last-child {
+        max-width: 100%;
+
+        margin-top: 16px;
+    }
+
 
     /* -----------------------------------------------------
        PROJECT LIST
-       ----------------------------------------------------- */
+    ----------------------------------------------------- */
 
     .projects-list {
         padding: 34px 20px 5px;
@@ -496,14 +749,46 @@
         grid-template-columns: 1fr;
     }
 
+    .projects-grid {
+        gap: 24px;
+    }
+
+
+    /* -----------------------------------------------------
+       PROJECT CARD
+    ----------------------------------------------------- */
+
+    .project-card-footer {
+        min-height: 66px;
+
+        padding: 12px;
+    }
+
+    .project-card-footer h2 {
+        font-size: 18px;
+    }
+
+    .project-actions {
+        gap: 6px;
+    }
+
+    .live-button {
+        height: 30px;
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
     /* -----------------------------------------------------
        BUILD WITH ADIC
-       ----------------------------------------------------- */
+    ----------------------------------------------------- */
 
     .build-with-adic {
         padding: 44px 20px 48px !important;
 
         text-align: center;
+
         align-items: center;
     }
 
@@ -519,18 +804,22 @@
     }
 
     .build-with-adic h2 {
-        font-size: clamp(36px, 10vw, 52px);
+        max-width: 100%;
+
+        font-size: clamp(
+            36px,
+            10vw,
+            52px
+        );
+
         line-height: 1.05;
 
-        /*
-         * Allow the heading to wrap on small screens
-         * so it never gets cut off.
-         */
         white-space: normal;
     }
 
     .build-heading > p:last-child {
         max-width: 100%;
+
         margin-top: 22px;
 
         font-size: 12px;
@@ -538,25 +827,21 @@
     }
 
     .idea-open-button {
+        width: auto;
+
         align-self: center;
 
         margin-top: 28px;
 
-        height: 46px;
+        min-height: 46px;
+
         padding: 0 18px;
     }
 
-    /* -----------------------------------------------------
-       PROJECT CARD FOOTER
-       ----------------------------------------------------- */
-
-    .project-card-footer h2 {
-        font-size: 18px;
-    }
 
     /* -----------------------------------------------------
        IDEA FORM
-       ----------------------------------------------------- */
+    ----------------------------------------------------- */
 
     .idea-form {
         padding: 18px;
@@ -567,8 +852,118 @@
     }
 
     .idea-submit {
-        display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .projects-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .projects-list {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .projects-grid {
+        gap: 20px;
+    }
+
+    .project-card-footer {
+        gap: 7px;
+
+        padding: 11px;
+    }
+
+    .project-number {
+        font-size: 7px;
+    }
+
+    .project-card-footer h2 {
+        font-size: 17px;
+    }
+
+    .live-button {
+        padding-left: 8px;
+        padding-right: 8px;
+
+        font-size: 7px;
+    }
+
+    .project-detail-icon {
+        width: 29px;
+        height: 29px;
+
+        flex-basis: 29px;
+    }
+
+    .build-with-adic {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .build-with-adic h2 {
+        font-size: clamp(
+            34px,
+            11vw,
+            46px
+        );
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .projects-hero h1 {
+        font-size: 40px;
+    }
+
+    .project-card-footer {
+        flex-wrap: wrap;
+    }
+
+    .project-card-footer h2 {
+        max-width: calc(100% - 35px);
+    }
+
+    .project-actions {
+        width: 100%;
+
+        margin-left: 0;
+
+        justify-content: flex-end;
+    }
+
+    .build-with-adic h2 {
+        font-size: 32px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .project-card,
+    .project-image-wrap img,
+    .project-image-overlay,
+    .project-detail-icon,
+    .idea-open-button {
+        transition: none;
     }
 }

@@ -1,23 +1,43 @@
+/* =========================================================
+   EXPLORE ADIC PAGE
+========================================================= */
+
 .explore-page {
+    width: 100%;
+    min-width: 0;
+
     background: #fff;
     color: #0b132b;
+
     font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
 }
 
-/* =========================
+.explore-page *,
+.explore-page *::before,
+.explore-page *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
    COMMON SECTION
-========================= */
+========================================================= */
 
 .section {
+    width: 100%;
     padding: 5px 6vw;
 }
 
 .section-heading {
-    text-align: center;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .section-heading h2 {
+    margin: 0;
+
     font-size: clamp(38px, 4vw, 54px);
     line-height: 1.04;
     letter-spacing: -0.045em;
@@ -25,40 +45,62 @@
 
 .section-label {
     margin: 0 0 9px;
+
     font-size: 10px;
     font-weight: 800;
+
     letter-spacing: 0.16em;
     text-transform: uppercase;
+
     color: #0066ff;
 }
 
 
-/* =========================
+/* =========================================================
    EXPLORE HERO
-========================= */
+========================================================= */
 
 .explore-hero {
+    width: 100%;
     min-height: 310px;
+
     padding: 5px 8vw;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    background: linear-gradient(135deg, #f8fafc, #eef6ff);
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef6ff
+    );
 }
 
 .explore-hero > div {
     width: 100%;
+    max-width: 1200px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    min-width: 0;
 }
 
 .explore-hero h1 {
+    width: 100%;
+    max-width: 100%;
+
     margin: 0;
+
     font-size: clamp(48px, 7vw, 88px);
     line-height: 0.94;
+
     letter-spacing: -0.065em;
+
     white-space: nowrap;
 }
 
@@ -67,29 +109,41 @@
 }
 
 .explore-hero p:not(.section-label) {
+    width: 100%;
     max-width: 620px;
+
     margin: 24px auto 0;
+
     color: #64748b;
+
     font-size: 14px;
     line-height: 1.75;
 }
 
 
-/* =========================
+/* =========================================================
    STATS
-========================= */
+========================================================= */
 
 .explore-stats {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
     border-top: 1px solid #dce5ef;
     border-bottom: 1px solid #dce5ef;
+
     background: #fff;
 }
 
 .explore-stats > div {
+    min-width: 0;
+
     padding: 22px 6vw;
+
     border-right: 1px solid #dce5ef;
+
     text-align: center;
 }
 
@@ -99,25 +153,34 @@
 
 .explore-stats strong {
     display: block;
+
     color: #0066ff;
+
     font-size: 40px;
     line-height: 1;
+
     letter-spacing: -0.06em;
 }
 
 .explore-stats span {
     display: block;
+
     margin-top: 9px;
+
     color: #64748b;
+
     font-size: 8px;
     font-weight: 800;
+
     letter-spacing: 0.14em;
+
+    overflow-wrap: anywhere;
 }
 
 
-/* =========================
+/* =========================================================
    TEAM
-========================= */
+========================================================= */
 
 .team-section {
     padding-top: 5px;
@@ -125,84 +188,141 @@
 }
 
 .member-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    grid-template-columns: repeat(
+        4,
+        minmax(0, 1fr)
+    );
+
     gap: 16px;
 }
 
 .member-card {
-    min-height: 245px;
-    padding: 18px;
-    border: 1px solid #dce5ef;
-    background: #fff;
-    transition: 0.25s ease;
     position: relative;
+
+    min-width: 0;
+    min-height: 245px;
+
+    padding: 18px;
+
+    border: 1px solid #dce5ef;
+
+    background: #fff;
+
     text-align: center;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    overflow: hidden;
 }
 
 .member-card:hover {
     transform: translateY(-4px);
+
     border-color: #9dc4ef;
-    box-shadow: 0 18px 45px rgba(0, 102, 255, 0.09);
+
+    box-shadow:
+        0 18px 45px rgba(0, 102, 255, 0.09);
 }
 
 .member-top {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+
     color: #94a3b8;
+
     font-size: 8px;
     font-weight: 800;
+
     letter-spacing: 0.12em;
 }
 
 .member-avatar {
     width: 78px;
     height: 78px;
+
     margin: 26px auto 20px;
+
     border-radius: 50%;
+
     display: grid;
     place-items: center;
-    background: linear-gradient(135deg, #0b132b, #0066ff);
+
+    background: linear-gradient(
+        135deg,
+        #0b132b,
+        #0066ff
+    );
+
     color: #fff;
+
     font-size: 18px;
     font-weight: 800;
+
     letter-spacing: 0.05em;
-    box-shadow: 0 12px 25px rgba(0, 102, 255, 0.15);
+
+    box-shadow:
+        0 12px 25px rgba(0, 102, 255, 0.15);
+
     overflow: hidden;
-    position: relative;
 }
 
 .member-avatar img {
     display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center;
 }
 
 .member-card h3 {
+    margin: 0;
+
     font-size: 20px;
+
+    line-height: 1.2;
+
     letter-spacing: -0.04em;
+
+    overflow-wrap: anywhere;
 }
 
 .member-card p {
-    margin-top: 6px;
+    margin: 6px 0 0;
+
     color: #64748b;
+
     font-size: 10px;
 }
 
 .member-card a,
 .portfolio-pending {
     display: inline-flex;
+    align-items: center;
+
     margin-top: 22px;
+
     font-size: 9px;
     font-weight: 800;
+
     letter-spacing: 0.08em;
+
     text-transform: uppercase;
 }
 
 .member-card a {
     color: #0066ff;
+
+    text-decoration: none;
 }
 
 .member-card a span {
@@ -214,56 +334,80 @@
 }
 
 
-/* =========================
+/* =========================================================
    VALUES
-========================= */
+========================================================= */
 
 .explore-values {
     padding-top: 5px;
     padding-bottom: 5px;
+
     background: #f8fafc;
 }
 
 .values-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns: repeat(
+        4,
+        minmax(0, 1fr)
+    );
+
     gap: 15px;
 }
 
 .value-card {
+    min-width: 0;
     min-height: 210px;
+
     padding: 25px;
+
     border-top: 2px solid #0066ff;
+
     background: #fff;
 }
 
 .value-card span {
     font-size: 9px;
+
     color: #0066ff;
+
     font-weight: 800;
 }
 
 .value-card h3 {
     margin: 28px 0 10px;
+
     font-size: 28px;
+
+    line-height: 1.05;
+
     letter-spacing: -0.04em;
 }
 
 .value-card p {
+    margin: 0;
+
     color: #64748b;
-    line-height: 1.7;
+
     font-size: 11px;
+    line-height: 1.7;
 }
 
 
-/* =========================
+/* =========================================================
    CTA
-========================= */
+========================================================= */
 
 .explore-cta {
     padding: 5px 6vw;
+
     background: #0b132b;
+
     color: #fff;
+
     text-align: center;
 }
 
@@ -273,9 +417,13 @@
 
 .explore-cta h2 {
     margin: 0;
+
     color: #fff;
+
     font-size: clamp(44px, 6vw, 72px);
+
     line-height: 0.96;
+
     letter-spacing: -0.06em;
 }
 
@@ -285,14 +433,34 @@
 
 .explore-cta a {
     display: inline-flex;
-    margin-top: 25px;
-    height: 44px;
-    padding: 0 18px;
     align-items: center;
+    justify-content: center;
+
+    margin-top: 25px;
+
+    min-height: 44px;
+
+    padding: 0 18px;
+
     gap: 10px;
+
     background: #0066ff;
+
     color: #fff;
+
     font: 800 10px "Inter", sans-serif;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.explore-cta a:hover {
+    background: #00aee8;
+
+    transform: translateY(-1px);
 }
 
 .explore-cta a span {
@@ -300,40 +468,81 @@
 }
 
 
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media (max-width: 950px) {
 
     .member-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(
+            2,
+            minmax(0, 1fr)
+        );
     }
 
     .values-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(
+            2,
+            minmax(0, 1fr)
+        );
     }
 }
 
 
-/* =========================
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .explore-hero {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .explore-hero h1 {
+        white-space: normal;
+    }
+
+    .explore-stats > div {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .explore-hero {
         min-height: 285px;
+
         padding: 5px 20px;
     }
 
     .explore-hero h1 {
         white-space: normal;
-        font-size: clamp(42px, 12vw, 60px);
+
+        font-size: clamp(
+            42px,
+            12vw,
+            60px
+        );
     }
 
     .explore-hero p:not(.section-label) {
         margin-top: 18px;
+
+        font-size: 13px;
     }
 
     .explore-stats > div {
@@ -346,6 +555,8 @@
 
     .explore-stats span {
         font-size: 7px;
+
+        line-height: 1.4;
     }
 
     .member-grid,
@@ -355,10 +566,6 @@
 
     .member-card {
         min-height: 225px;
-    }
-
-    .section {
-        padding: 5px 20px;
     }
 
     .team-section {
@@ -373,5 +580,124 @@
 
     .explore-cta {
         padding: 5px 20px;
+    }
+
+    .explore-cta a {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .explore-hero {
+        min-height: 275px;
+    }
+
+    .explore-hero h1 {
+        font-size: clamp(
+            40px,
+            12vw,
+            54px
+        );
+    }
+
+    .explore-hero p:not(.section-label) {
+        max-width: 340px;
+    }
+
+    .explore-stats > div {
+        padding: 18px 5px;
+    }
+
+    .explore-stats strong {
+        font-size: 27px;
+    }
+
+    .explore-stats span {
+        font-size: 6.5px;
+        letter-spacing: 0.1em;
+    }
+
+    .member-card {
+        padding: 16px;
+    }
+
+    .value-card {
+        min-height: 190px;
+        padding: 22px;
+    }
+
+    .value-card h3 {
+        margin-top: 22px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .explore-hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .explore-hero h1 {
+        font-size: 39px;
+    }
+
+    .explore-hero p:not(.section-label) {
+        font-size: 12px;
+    }
+
+    .explore-stats > div {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .explore-stats strong {
+        font-size: 25px;
+    }
+
+    .explore-stats span {
+        font-size: 6px;
+    }
+
+    .member-card {
+        padding: 14px;
+    }
+
+    .value-card {
+        padding: 19px;
+    }
+
+    .explore-cta {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .member-card,
+    .explore-cta a {
+        transition: none;
     }
 }
