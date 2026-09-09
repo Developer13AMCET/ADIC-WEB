@@ -1,3 +1,4 @@
+
 /* =========================================================
    PROJECTS PAGE
 ========================================================= */
@@ -644,20 +645,47 @@
             repeat(2, minmax(0, 1fr));
     }
 
+    .project-card,
+    .project-card-footer,
+    .project-card-footer h2,
+    .project-actions {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .project-card-footer {
+        overflow: hidden;
+    }
+
+    .project-card-footer h2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .build-with-adic {
         padding: 52px 6vw 56px !important;
     }
 
     .build-heading {
         max-width: 900px;
+        min-width: 0;
     }
 
     .build-with-adic h2 {
+        max-width: 100%;
+
         font-size: clamp(
             40px,
             6vw,
             62px
         );
+    }
+
+    .idea-form,
+    .idea-grid,
+    .form-field {
+        min-width: 0;
+        max-width: 100%;
     }
 
     .idea-open-button {
@@ -673,20 +701,41 @@
 @media (max-width: 760px) {
 
     .projects-hero {
+        width: 100%;
+        min-width: 0;
+
         padding-left: 5vw;
         padding-right: 5vw;
     }
 
+    .projects-hero-content {
+        min-width: 0;
+        max-width: 100%;
+    }
+
     .projects-hero h1 {
+        max-width: 100%;
+
         font-size: clamp(
             46px,
             10vw,
             72px
         );
+
+        overflow-wrap: anywhere;
+    }
+
+    .projects-hero p:last-child {
+        max-width: 100%;
     }
 
     .build-with-adic h2 {
         white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .build-heading > p:last-child {
+        max-width: 100%;
     }
 }
 
@@ -721,18 +770,31 @@
         align-items: flex-start;
     }
 
+    .projects-hero-content {
+        width: 100%;
+        min-width: 0;
+    }
+
     .projects-hero h1 {
+        width: 100%;
+        max-width: 100%;
+
         font-size: clamp(
             42px,
             13vw,
             62px
         );
+
+        overflow-wrap: anywhere;
     }
 
     .projects-hero p:last-child {
+        width: 100%;
         max-width: 100%;
 
         margin-top: 16px;
+
+        overflow-wrap: anywhere;
     }
 
 
@@ -741,11 +803,16 @@
     ----------------------------------------------------- */
 
     .projects-list {
+        width: 100%;
+
         padding: 34px 20px 5px;
     }
 
     .projects-grid,
     .idea-grid {
+        width: 100%;
+        min-width: 0;
+
         grid-template-columns: 1fr;
     }
 
@@ -758,17 +825,44 @@
        PROJECT CARD
     ----------------------------------------------------- */
 
+    .project-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        overflow: hidden;
+    }
+
     .project-card-footer {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
         min-height: 66px;
 
         padding: 12px;
+
+        overflow: hidden;
+    }
+
+    .project-number {
+        flex-shrink: 0;
     }
 
     .project-card-footer h2 {
+        min-width: 0;
+        max-width: 100%;
+
         font-size: 18px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .project-actions {
+        min-width: 0;
+        flex-shrink: 0;
+
         gap: 6px;
     }
 
@@ -777,6 +871,12 @@
 
         padding-left: 10px;
         padding-right: 10px;
+
+        flex-shrink: 0;
+    }
+
+    .project-detail-icon {
+        flex-shrink: 0;
     }
 
 
@@ -785,25 +885,34 @@
     ----------------------------------------------------- */
 
     .build-with-adic {
+        width: 100%;
+        min-width: 0;
+
         padding: 44px 20px 48px !important;
 
         text-align: center;
 
         align-items: center;
+
+        overflow: hidden;
     }
 
     .build-heading {
         width: 100%;
-        max-width: none;
+        max-width: 100%;
+        min-width: 0;
 
         align-items: center;
     }
 
     .build-heading .section-label {
         margin-bottom: 18px;
+
+        max-width: 100%;
     }
 
     .build-with-adic h2 {
+        width: 100%;
         max-width: 100%;
 
         font-size: clamp(
@@ -815,19 +924,25 @@
         line-height: 1.05;
 
         white-space: normal;
+
+        overflow-wrap: anywhere;
     }
 
     .build-heading > p:last-child {
+        width: 100%;
         max-width: 100%;
 
         margin-top: 22px;
 
         font-size: 12px;
         line-height: 1.75;
+
+        overflow-wrap: anywhere;
     }
 
     .idea-open-button {
         width: auto;
+        max-width: 100%;
 
         align-self: center;
 
@@ -836,6 +951,8 @@
         min-height: 46px;
 
         padding: 0 18px;
+
+        white-space: nowrap;
     }
 
 
@@ -844,14 +961,43 @@
     ----------------------------------------------------- */
 
     .idea-form {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
         padding: 18px;
+
+        overflow: hidden;
+    }
+
+    .idea-grid {
+        width: 100%;
+        min-width: 0;
+
+        grid-template-columns: 1fr;
+    }
+
+    .form-field {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .form-field.full {
         grid-column: auto;
     }
 
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
     .idea-submit {
+        max-width: 100%;
+
         margin-left: auto;
         margin-right: auto;
     }
@@ -889,6 +1035,8 @@
     }
 
     .project-card-footer h2 {
+        min-width: 0;
+
         font-size: 17px;
     }
 
@@ -918,6 +1066,10 @@
             46px
         );
     }
+
+    .idea-form {
+        padding: 15px;
+    }
 }
 
 
@@ -931,24 +1083,95 @@
         font-size: 40px;
     }
 
+    .projects-hero {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .projects-list {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .project-card-footer {
         flex-wrap: wrap;
     }
 
     .project-card-footer h2 {
+        min-width: 0;
         max-width: calc(100% - 35px);
     }
 
     .project-actions {
         width: 100%;
+        max-width: 100%;
 
         margin-left: 0;
 
         justify-content: flex-end;
     }
 
+    .build-with-adic {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
     .build-with-adic h2 {
         font-size: 32px;
+    }
+
+    .idea-form {
+        padding: 13px;
+    }
+}
+
+
+/* =========================================================
+   EXTREME SMALL WIDTH
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .projects-hero h1 {
+        font-size: 37px;
+    }
+
+    .projects-list {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .project-card-footer {
+        padding: 10px;
+    }
+
+    .project-card-footer h2 {
+        font-size: 16px;
+    }
+
+    .project-actions {
+        justify-content: flex-start;
+    }
+
+    .build-with-adic {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .build-with-adic h2 {
+        font-size: 29px;
+    }
+
+    .idea-form {
+        padding: 11px;
+    }
+
+    .idea-open-button,
+    .idea-submit {
+        max-width: 100%;
+
+        padding-left: 12px;
+        padding-right: 12px;
     }
 }
 

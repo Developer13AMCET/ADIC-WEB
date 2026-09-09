@@ -1,3 +1,4 @@
+
 .site-header {
     position: sticky;
     position: -webkit-sticky;
@@ -270,11 +271,15 @@
 @media (max-width: 1100px) {
 
     .header-inner {
+        width: 100%;
+        min-width: 0;
+
         padding: 0 20px;
         gap: 18px;
     }
 
     .header-links {
+        min-width: 0;
         gap: 16px;
     }
 
@@ -297,9 +302,18 @@
 @media (max-width: 900px) {
 
     .header-inner {
+        width: 100%;
+        min-width: 0;
+
         min-height: 72px;
+
         padding: 0 18px;
         gap: 14px;
+    }
+
+    .header-brand {
+        min-width: 0;
+        max-width: calc(100% - 125px);
     }
 
     .header-brand img {
@@ -308,18 +322,34 @@
     }
 
     .header-brand-text {
+        min-width: 0;
+        max-width: 100%;
+
         padding-left: 10px;
+
+        overflow: hidden;
     }
 
     .header-brand-text span {
         font-size: 14px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .header-brand-text small {
+        max-width: 100%;
+
         font-size: 6px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .header-links {
+        min-width: 0;
         gap: 11px;
     }
 
@@ -346,11 +376,16 @@
 @media (max-width: 800px) {
 
     .site-header {
+        width: 100%;
+        min-width: 0;
+
         z-index: 1000;
     }
 
     .header-inner {
         width: 100%;
+        min-width: 0;
+
         min-height: 70px;
 
         padding: 0 14px;
@@ -362,8 +397,11 @@
     /* ---------- BRAND ---------- */
 
     .header-brand {
+        width: auto;
         min-width: 0;
-        max-width: calc(100% - 52px);
+        max-width: calc(100% - 50px);
+
+        flex: 1 1 auto;
     }
 
     .header-brand img {
@@ -373,6 +411,7 @@
 
     .header-brand-text {
         min-width: 0;
+        max-width: calc(100% - 52px);
 
         padding-left: 9px;
 
@@ -382,12 +421,21 @@
     }
 
     .header-brand-text span {
+        width: 100%;
+        min-width: 0;
+
         font-size: 13px;
         letter-spacing: 0.15em;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .header-brand-text small {
+        width: 100%;
         max-width: 100%;
+        min-width: 0;
 
         overflow: hidden;
         text-overflow: ellipsis;
@@ -415,7 +463,7 @@
         width: 42px;
         height: 40px;
 
-        flex-shrink: 0;
+        flex: 0 0 42px;
 
         margin-left: auto;
         padding: 9px 8px;
@@ -484,6 +532,7 @@
 
     .mobile-menu {
         width: 100%;
+        min-width: 0;
 
         display: flex;
         flex-direction: column;
@@ -497,11 +546,14 @@
         box-shadow: 0 12px 25px rgba(11, 19, 43, 0.06);
 
         box-sizing: border-box;
+
+        overflow-x: hidden;
     }
 
     .mobile-menu a,
     .mobile-menu button {
         width: 100%;
+        min-width: 0;
 
         min-height: 44px;
 
@@ -569,8 +621,16 @@
 @media (max-width: 390px) {
 
     .header-inner {
+        width: 100%;
+        min-width: 0;
+
         min-height: 66px;
+
         padding: 0 11px;
+    }
+
+    .header-brand {
+        max-width: calc(100% - 48px);
     }
 
     .header-brand img {
@@ -579,26 +639,83 @@
     }
 
     .header-brand-text {
+        min-width: 0;
+        max-width: calc(100% - 47px);
+
         padding-left: 8px;
     }
 
     .header-brand-text span {
         font-size: 11px;
         letter-spacing: 0.13em;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .header-brand-text small {
+        max-width: 100%;
+
         font-size: 5.5px;
         letter-spacing: 0.06em;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .menu-toggle {
         width: 40px;
         height: 38px;
+
+        flex: 0 0 40px;
     }
 
     .menu-toggle span {
         width: 19px;
+    }
+}
+
+
+/* =========================================================
+   VERY VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .header-inner {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .header-brand {
+        max-width: calc(100% - 46px);
+    }
+
+    .header-brand-text {
+        max-width: calc(100% - 44px);
+    }
+
+    .header-brand-text span {
+        font-size: 10px;
+        letter-spacing: 0.11em;
+    }
+
+    .header-brand-text small {
+        font-size: 5px;
+        letter-spacing: 0.04em;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 36px;
+
+        flex-basis: 38px;
+    }
+
+    .menu-toggle span {
+        width: 18px;
     }
 }
 

@@ -1,3 +1,4 @@
+
 .innovation-visual {
   position: relative;
   width: 100%;
@@ -7,10 +8,6 @@
   border: 1px solid #e2e8f0;
   box-sizing: border-box;
 }
-
-/* =========================
-   BACKGROUND GRID
-========================= */
 
 .visual-grid {
   position: absolute;
@@ -55,6 +52,7 @@
   background: rgba(99, 102, 241, 0.07);
 }
 
+
 /* =========================
    TOP LINE
 ========================= */
@@ -95,7 +93,10 @@
   font-size: 9px;
   letter-spacing: 0.1em;
   color: #94a3b8;
+
+  white-space: nowrap;
 }
+
 
 /* =========================
    LOGO STAGE
@@ -118,6 +119,7 @@
 
   box-sizing: border-box;
 }
+
 
 /* =========================
    RINGS
@@ -163,6 +165,7 @@
   animation: ringRotateReverse 25s linear infinite;
 }
 
+
 /* =========================
    LOGO AURA
 ========================= */
@@ -181,6 +184,7 @@
 
   animation: auraPulse 4s ease-in-out infinite;
 }
+
 
 /* =========================
    LOGO BUTTON
@@ -231,6 +235,7 @@
   border-radius: 50%;
 }
 
+
 /* =========================
    ORBIT DOTS
 ========================= */
@@ -274,6 +279,7 @@
   animation: orbitDotReverse 11s linear infinite;
 }
 
+
 /* =========================
    ORBIT LABELS
 ========================= */
@@ -289,6 +295,8 @@
   color: #64748b;
 
   white-space: nowrap;
+
+  max-width: 100%;
 }
 
 .label-top {
@@ -319,6 +327,7 @@
   transform: translateY(-50%);
 }
 
+
 /* =========================
    CURRENT STAGE
    DESKTOP + TABLET ONLY
@@ -336,10 +345,13 @@
   justify-content: space-between;
 
   z-index: 10;
+
+  min-width: 0;
 }
 
 .journey-status > div:first-child {
-  min-width: 220px;
+  min-width: 0;
+  width: auto;
 }
 
 .journey-kicker {
@@ -374,7 +386,10 @@
   line-height: 1.6;
 
   color: #64748b;
+
+  overflow-wrap: anywhere;
 }
+
 
 /* =========================
    PROGRESS LINE
@@ -408,6 +423,7 @@
   animation: progressMove 3s ease-in-out infinite alternate;
 }
 
+
 /* =========================
    STAGES
 ========================= */
@@ -424,12 +440,14 @@
   border-top: 1px solid #e2e8f0;
 
   z-index: 10;
+
+  min-width: 0;
 }
 
 .journey-stages button {
   position: relative;
 
-  flex: 1;
+  flex: 1 1 0;
   min-width: 0;
 
   display: flex;
@@ -447,12 +465,16 @@
   cursor: pointer;
 
   color: #94a3b8;
+
+  overflow: hidden;
 }
 
 .journey-stages button span {
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.08em;
+
+  white-space: nowrap;
 }
 
 .journey-stages button strong {
@@ -460,6 +482,8 @@
   letter-spacing: 0.08em;
 
   color: #64748b;
+
+  white-space: nowrap;
 }
 
 .journey-stages button.active::before {
@@ -480,6 +504,7 @@
 .journey-stages button.active strong {
   color: #0f172a;
 }
+
 
 /* =========================
    ANIMATIONS
@@ -581,12 +606,16 @@
   }
 }
 
+
 /* =========================
    TABLET
 ========================= */
 
 @media (max-width: 900px) {
+
   .innovation-visual {
+    width: 100%;
+    min-width: 0;
     min-height: 480px;
   }
 
@@ -598,20 +627,36 @@
   .journey-status {
     left: 28px;
     right: 28px;
+
+    min-width: 0;
+  }
+
+  .journey-status > div:first-child {
+    min-width: 0;
+  }
+
+  .journey-line {
+    max-width: 140px;
   }
 
   .journey-stages {
     left: 28px;
     right: 28px;
+
+    min-width: 0;
   }
 }
+
 
 /* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 700px) {
+
   .innovation-visual {
+    width: 100%;
+    min-width: 0;
     min-height: 430px;
   }
 
@@ -619,6 +664,15 @@
     top: 18px;
     left: 20px;
     right: 20px;
+
+    min-width: 0;
+  }
+
+  .visual-code {
+    min-width: 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .logo-stage {
@@ -664,10 +718,11 @@
     bottom: -38px;
   }
 
+
   /* =======================================================
      MOBILE:
      CURRENT STAGE IS HIDDEN
-     
+
      IDEA / DESIGN / BUILD REMAIN VISIBLE
   ======================================================= */
 
@@ -681,20 +736,36 @@
     bottom: 22px;
 
     display: flex;
+
+    min-width: 0;
   }
 
   .journey-stages button {
+    min-width: 0;
+
     gap: 5px;
     padding-top: 11px;
+
+    overflow: hidden;
   }
 
   .journey-stages button span {
+    min-width: 0;
+
     font-size: 7px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .journey-stages button strong {
+    min-width: 0;
+
     font-size: 8px;
     letter-spacing: 0.05em;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .journey-stages button.active::before {
@@ -710,12 +781,16 @@
   }
 }
 
+
 /* =========================
    SMALL MOBILE
 ========================= */
 
 @media (max-width: 420px) {
+
   .innovation-visual {
+    width: 100%;
+    min-width: 0;
     min-height: 410px;
   }
 
@@ -765,18 +840,31 @@
     bottom: 18px;
   }
 
+  .journey-stages button {
+    gap: 4px;
+  }
+
   .journey-stages button strong {
     font-size: 7px;
   }
 }
+
 
 /* =========================
    VERY SMALL MOBILE
 ========================= */
 
 @media (max-width: 360px) {
+
   .innovation-visual {
+    width: 100%;
+    min-width: 0;
     min-height: 400px;
+  }
+
+  .visual-topline {
+    left: 12px;
+    right: 12px;
   }
 
   .logo-stage {
@@ -812,13 +900,82 @@
     left: 12px;
     right: 12px;
   }
+
+  .journey-stages button {
+    gap: 3px;
+  }
+
+  .journey-stages button span {
+    font-size: 6.5px;
+  }
+
+  .journey-stages button strong {
+    font-size: 6.5px;
+  }
 }
+
+
+/* =========================
+   VERY VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 340px) {
+
+  .innovation-visual {
+    min-height: 390px;
+  }
+
+  .visual-topline {
+    left: 10px;
+    right: 10px;
+  }
+
+  .logo-stage {
+    width: 245px;
+    height: 245px;
+  }
+
+  .ring-one {
+    width: 126px;
+    height: 126px;
+  }
+
+  .ring-two {
+    width: 180px;
+    height: 180px;
+  }
+
+  .ring-three {
+    width: 235px;
+    height: 235px;
+  }
+
+  .hero-logo-button {
+    width: 122px;
+    height: 122px;
+  }
+
+  .journey-stages {
+    left: 10px;
+    right: 10px;
+  }
+
+  .journey-stages button span {
+    font-size: 6px;
+  }
+
+  .journey-stages button strong {
+    font-size: 6px;
+  }
+}
+
 
 /* =========================
    REDUCED MOTION
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .ring-one,
   .ring-two,
   .ring-three,

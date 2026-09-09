@@ -1,474 +1,4 @@
 /* =========================================================
-   EXPLORE ADIC PAGE
-========================================================= */
-
-.explore-page {
-    width: 100%;
-    min-width: 0;
-
-    background: #fff;
-    color: #0b132b;
-
-    font-family: "Inter", sans-serif;
-
-    overflow-x: hidden;
-}
-
-.explore-page *,
-.explore-page *::before,
-.explore-page *::after {
-    box-sizing: border-box;
-}
-
-
-/* =========================================================
-   COMMON SECTION
-========================================================= */
-
-.section {
-    width: 100%;
-    padding: 5px 6vw;
-}
-
-.section-heading {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.section-heading h2 {
-    margin: 0;
-
-    font-size: clamp(38px, 4vw, 54px);
-    line-height: 1.04;
-    letter-spacing: -0.045em;
-}
-
-.section-label {
-    margin: 0 0 9px;
-
-    font-size: 10px;
-    font-weight: 800;
-
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-
-    color: #0066ff;
-}
-
-
-/* =========================================================
-   EXPLORE HERO
-========================================================= */
-
-.explore-hero {
-    width: 100%;
-    min-height: 310px;
-
-    padding: 5px 8vw;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        #f8fafc,
-        #eef6ff
-    );
-}
-
-.explore-hero > div {
-    width: 100%;
-    max-width: 1200px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    min-width: 0;
-}
-
-.explore-hero h1 {
-    width: 100%;
-    max-width: 100%;
-
-    margin: 0;
-
-    font-size: clamp(48px, 7vw, 88px);
-    line-height: 0.94;
-
-    letter-spacing: -0.065em;
-
-    white-space: nowrap;
-}
-
-.explore-hero h1 span {
-    color: #0066ff;
-}
-
-.explore-hero p:not(.section-label) {
-    width: 100%;
-    max-width: 620px;
-
-    margin: 24px auto 0;
-
-    color: #64748b;
-
-    font-size: 14px;
-    line-height: 1.75;
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.explore-stats {
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    border-top: 1px solid #dce5ef;
-    border-bottom: 1px solid #dce5ef;
-
-    background: #fff;
-}
-
-.explore-stats > div {
-    min-width: 0;
-
-    padding: 22px 6vw;
-
-    border-right: 1px solid #dce5ef;
-
-    text-align: center;
-}
-
-.explore-stats > div:last-child {
-    border-right: 0;
-}
-
-.explore-stats strong {
-    display: block;
-
-    color: #0066ff;
-
-    font-size: 40px;
-    line-height: 1;
-
-    letter-spacing: -0.06em;
-}
-
-.explore-stats span {
-    display: block;
-
-    margin-top: 9px;
-
-    color: #64748b;
-
-    font-size: 8px;
-    font-weight: 800;
-
-    letter-spacing: 0.14em;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   TEAM
-========================================================= */
-
-.team-section {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.member-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(
-        4,
-        minmax(0, 1fr)
-    );
-
-    gap: 16px;
-}
-
-.member-card {
-    position: relative;
-
-    min-width: 0;
-    min-height: 245px;
-
-    padding: 18px;
-
-    border: 1px solid #dce5ef;
-
-    background: #fff;
-
-    text-align: center;
-
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-
-    overflow: hidden;
-}
-
-.member-card:hover {
-    transform: translateY(-4px);
-
-    border-color: #9dc4ef;
-
-    box-shadow:
-        0 18px 45px rgba(0, 102, 255, 0.09);
-}
-
-.member-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    color: #94a3b8;
-
-    font-size: 8px;
-    font-weight: 800;
-
-    letter-spacing: 0.12em;
-}
-
-.member-avatar {
-    width: 78px;
-    height: 78px;
-
-    margin: 26px auto 20px;
-
-    border-radius: 50%;
-
-    display: grid;
-    place-items: center;
-
-    background: linear-gradient(
-        135deg,
-        #0b132b,
-        #0066ff
-    );
-
-    color: #fff;
-
-    font-size: 18px;
-    font-weight: 800;
-
-    letter-spacing: 0.05em;
-
-    box-shadow:
-        0 12px 25px rgba(0, 102, 255, 0.15);
-
-    overflow: hidden;
-}
-
-.member-avatar img {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-}
-
-.member-card h3 {
-    margin: 0;
-
-    font-size: 20px;
-
-    line-height: 1.2;
-
-    letter-spacing: -0.04em;
-
-    overflow-wrap: anywhere;
-}
-
-.member-card p {
-    margin: 6px 0 0;
-
-    color: #64748b;
-
-    font-size: 10px;
-}
-
-.member-card a,
-.portfolio-pending {
-    display: inline-flex;
-    align-items: center;
-
-    margin-top: 22px;
-
-    font-size: 9px;
-    font-weight: 800;
-
-    letter-spacing: 0.08em;
-
-    text-transform: uppercase;
-}
-
-.member-card a {
-    color: #0066ff;
-
-    text-decoration: none;
-}
-
-.member-card a span {
-    margin-left: 8px;
-}
-
-.portfolio-pending {
-    color: #94a3b8;
-}
-
-
-/* =========================================================
-   VALUES
-========================================================= */
-
-.explore-values {
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    background: #f8fafc;
-}
-
-.values-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(
-        4,
-        minmax(0, 1fr)
-    );
-
-    gap: 15px;
-}
-
-.value-card {
-    min-width: 0;
-    min-height: 210px;
-
-    padding: 25px;
-
-    border-top: 2px solid #0066ff;
-
-    background: #fff;
-}
-
-.value-card span {
-    font-size: 9px;
-
-    color: #0066ff;
-
-    font-weight: 800;
-}
-
-.value-card h3 {
-    margin: 28px 0 10px;
-
-    font-size: 28px;
-
-    line-height: 1.05;
-
-    letter-spacing: -0.04em;
-}
-
-.value-card p {
-    margin: 0;
-
-    color: #64748b;
-
-    font-size: 11px;
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   CTA
-========================================================= */
-
-.explore-cta {
-    padding: 5px 6vw;
-
-    background: #0b132b;
-
-    color: #fff;
-
-    text-align: center;
-}
-
-.explore-cta .section-label {
-    color: #00d2ff;
-}
-
-.explore-cta h2 {
-    margin: 0;
-
-    color: #fff;
-
-    font-size: clamp(44px, 6vw, 72px);
-
-    line-height: 0.96;
-
-    letter-spacing: -0.06em;
-}
-
-.explore-cta h2 span {
-    color: #00d2ff;
-}
-
-.explore-cta a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 25px;
-
-    min-height: 44px;
-
-    padding: 0 18px;
-
-    gap: 10px;
-
-    background: #0066ff;
-
-    color: #fff;
-
-    font: 800 10px "Inter", sans-serif;
-
-    text-decoration: none;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-.explore-cta a:hover {
-    background: #00aee8;
-
-    transform: translateY(-1px);
-}
-
-.explore-cta a span {
-    font-size: 15px;
-}
-
-
-/* =========================================================
    TABLET
 ========================================================= */
 
@@ -487,6 +17,21 @@
             minmax(0, 1fr)
         );
     }
+
+    .member-card,
+    .value-card {
+        min-width: 0;
+    }
+
+    .member-card h3,
+    .member-card p,
+    .member-card a,
+    .portfolio-pending,
+    .value-card h3,
+    .value-card p {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
 }
 
 
@@ -496,18 +41,77 @@
 
 @media (max-width: 760px) {
 
+    .section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
     .explore-hero {
+        min-height: 300px;
+
         padding-left: 30px;
         padding-right: 30px;
     }
 
+    .explore-hero > div {
+        max-width: 100%;
+        min-width: 0;
+    }
+
     .explore-hero h1 {
         white-space: normal;
+
+        max-width: 100%;
+
+        font-size: clamp(
+            46px,
+            9vw,
+            72px
+        );
+
+        line-height: 0.96;
+    }
+
+    .explore-hero p:not(.section-label) {
+        max-width: 620px;
+
+        font-size: 13px;
     }
 
     .explore-stats > div {
+        min-width: 0;
+
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .explore-stats strong {
+        font-size: 34px;
+    }
+
+    .explore-stats span {
+        overflow-wrap: anywhere;
+    }
+
+    .member-grid,
+    .values-grid {
+        width: 100%;
+    }
+
+    .member-card,
+    .value-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .explore-cta h2 {
+        max-width: 100%;
+
+        font-size: clamp(
+            42px,
+            8vw,
+            64px
+        );
     }
 }
 
@@ -524,12 +128,16 @@
     }
 
     .explore-hero {
+        width: 100%;
         min-height: 285px;
 
         padding: 5px 20px;
     }
 
     .explore-hero h1 {
+        width: 100%;
+        max-width: 100%;
+
         white-space: normal;
 
         font-size: clamp(
@@ -537,15 +145,27 @@
             12vw,
             60px
         );
+
+        line-height: 0.96;
     }
 
     .explore-hero p:not(.section-label) {
+        width: 100%;
+        max-width: 100%;
+
         margin-top: 18px;
 
         font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .explore-stats {
+        width: 100%;
     }
 
     .explore-stats > div {
+        min-width: 0;
+
         padding: 22px 8px;
     }
 
@@ -555,8 +175,9 @@
 
     .explore-stats span {
         font-size: 7px;
-
         line-height: 1.4;
+
+        overflow-wrap: anywhere;
     }
 
     .member-grid,
@@ -565,7 +186,31 @@
     }
 
     .member-card {
+        width: 100%;
         min-height: 225px;
+
+        min-width: 0;
+    }
+
+    .member-card h3 {
+        max-width: 100%;
+
+        font-size: 20px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .member-card p {
+        max-width: 100%;
+
+        overflow-wrap: anywhere;
+    }
+
+    .member-card a,
+    .portfolio-pending {
+        max-width: 100%;
+
+        overflow-wrap: anywhere;
     }
 
     .team-section {
@@ -578,12 +223,43 @@
         padding-bottom: 5px;
     }
 
+    .value-card {
+        width: 100%;
+        min-height: 190px;
+
+        min-width: 0;
+    }
+
+    .value-card h3,
+    .value-card p {
+        max-width: 100%;
+
+        overflow-wrap: anywhere;
+    }
+
     .explore-cta {
+        width: 100%;
+
         padding: 5px 20px;
+    }
+
+    .explore-cta h2 {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(
+            40px,
+            11vw,
+            60px
+        );
+
+        line-height: 0.96;
     }
 
     .explore-cta a {
         max-width: 100%;
+
+        white-space: nowrap;
     }
 }
 
@@ -594,8 +270,16 @@
 
 @media (max-width: 430px) {
 
+    .section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     .explore-hero {
         min-height: 275px;
+
+        padding-left: 18px;
+        padding-right: 18px;
     }
 
     .explore-hero h1 {
@@ -604,10 +288,14 @@
             12vw,
             54px
         );
+
+        line-height: 0.96;
     }
 
     .explore-hero p:not(.section-label) {
         max-width: 340px;
+
+        font-size: 12.5px;
     }
 
     .explore-stats > div {
@@ -620,20 +308,39 @@
 
     .explore-stats span {
         font-size: 6.5px;
+
+        line-height: 1.4;
         letter-spacing: 0.1em;
     }
 
     .member-card {
+        width: 100%;
         padding: 16px;
     }
 
+    .member-avatar {
+        flex-shrink: 0;
+    }
+
     .value-card {
+        width: 100%;
         min-height: 190px;
+
         padding: 22px;
     }
 
     .value-card h3 {
         margin-top: 22px;
+    }
+
+    .explore-cta {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .explore-cta a {
+        width: auto;
+        max-width: 100%;
     }
 }
 
@@ -660,6 +367,7 @@
 
     .explore-hero p:not(.section-label) {
         font-size: 12px;
+        line-height: 1.65;
     }
 
     .explore-stats > div {
@@ -673,19 +381,46 @@
 
     .explore-stats span {
         font-size: 6px;
+        letter-spacing: 0.08em;
     }
 
     .member-card {
         padding: 14px;
     }
 
+    .member-card h3 {
+        font-size: 18px;
+    }
+
+    .member-avatar {
+        width: 72px;
+        height: 72px;
+
+        margin-top: 24px;
+        margin-bottom: 18px;
+    }
+
     .value-card {
         padding: 19px;
+    }
+
+    .value-card h3 {
+        font-size: 25px;
     }
 
     .explore-cta {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .explore-cta h2 {
+        font-size: 37px;
+    }
+
+    .explore-cta a {
+        max-width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
     }
 }
 
