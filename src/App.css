@@ -287,15 +287,6 @@ main {
   letter-spacing: 0.13em;
 }
 
-.foundation-image strong {
-  position: absolute;
-  right: 15px;
-  top: 12px;
-  color: #fff;
-  font-size: 46px;
-  letter-spacing: -0.06em;
-}
-
 .foundation-card-body {
   min-height: 160px;
   display: flex;

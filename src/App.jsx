@@ -78,7 +78,7 @@ function Home() {
         <section className="foundation section" id="foundation"><div className="section-heading"><p className="section-label">OUR FOUNDATION</p><h2>Think. Build. Innovate.</h2></div>
           <div className="foundation-grid">
             {[['01','Think','Question problems, explore possibilities and turn ideas into meaningful concepts.','01 — THINK','/adic-join.jpg'],['02','Build','Transform concepts into practical products through technology and teamwork.','02 — BUILD','/ZippyRide.jpg'],['03','Innovate','Create solutions that make an impact beyond the classroom.','03 — INNOVATE','/Biometrics.webp']].map(([number,title,text,label,image]) => <article className="foundation-card" key={number}>
-              <div className="foundation-image"><img src={image} alt="" /><span>{label}</span><strong>{number}</strong></div><div className="foundation-card-body"><span className="card-number">{number}</span><h3>{title}</h3><p>{text}</p></div>
+              <div className="foundation-image"><img src={image} alt="" /><span>{label}</span></div><div className="foundation-card-body"><span className="card-number">{number}</span><h3>{title}</h3><p>{text}</p></div>
             </article>)}
           </div>
         </section>
